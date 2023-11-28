@@ -1,0 +1,157 @@
+
+ <div class="brand text-center">
+<div class="searchBox p-2">
+  <div class="box">
+    <input matInput class="input-search" placeholder="Search by Request ID">
+    <button class="btn-danger btn-search" mat-icon-button><mat-icon>search</mat-icon></button>
+  </div>
+
+
+
+</div>
+
+
+</div>
+<mat-list>
+
+    <!-- ------dashboard------------------------ -->
+    <!-- <a mat-list-item   (click)="showSubmenu = !showSubmenu;" class="parent" >
+
+        <span class=" full-width  nav-caption" *ngIf="isExpanded || isShowing">Dashboard</span>
+
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more
+        </mat-icon>
+    </a>
+    <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+
+
+        <a mat-list-item routerLink=""  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <mat-icon class="dot">brightness_1</mat-icon>
+            <span class="nav-caption">Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="./result"  routerLinkActive="active">
+            <mat-icon class="dot">brightness_1</mat-icon>
+            <span class="nav-caption">result</span>
+        </a>
+
+
+    </div> -->
+    <a mat-list-item routerLink=""  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon >home</mat-icon>
+      <span class="nav-caption">Home</span>
+  </a>
+
+    <a mat-list-item routerLink="/newRequest" routerLinkActive="active" >
+      <mat-icon>reply_all</mat-icon>
+      <span class="nav-caption">Add Request</span>
+  </a>
+   <a mat-list-item   (click)="showSubmenu = !showSubmenu;" class="parent" >
+    <mat-icon> list</mat-icon>
+        <span class=" full-width  nav-caption" *ngIf="isExpanded || isShowing">Requests</span>
+
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more
+        </mat-icon>
+    </a>
+    <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+
+
+        <a mat-list-item routerLink="/template"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+
+            <span class="nav-caption">Pending Account Manager</span>
+        </a>
+        <a mat-list-item routerLink="./result"  routerLinkActive="active">
+
+            <span class="nav-caption">Pending Presales</span>
+        </a>
+        <a mat-list-item routerLink="./result"  routerLinkActive="active">
+
+          <span class="nav-caption">Pending Vendor</span>
+      </a>
+      <a mat-list-item routerLink="./result"  routerLinkActive="active">
+
+        <span class="nav-caption">Completed</span>
+    </a>
+
+
+    </div>
+
+    <!-- <a mat-list-item routerLink="/templateForm" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon class="dot">brightness_1</mat-icon>
+      <span class="nav-caption">Template Form</span>
+  </a> -->
+<!-- ----------Evaluate----------------------- -->
+<!-- <a mat-list-item   (click)="showSubmenu1 = !showSubmenu1;" class="parent" >
+
+    <span class=" full-width  nav-caption" *ngIf="isExpanded1 || isShowing1">Evaluate</span>
+
+    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu1}" *ngIf="isExpanded1 || isShowing1">expand_more
+    </mat-icon>
+</a>
+<div class="submenu" [ngClass]="{'expanded' : showSubmenu1}" *ngIf="isShowing1 || isExpanded1">
+
+
+
+    <a mat-list-item routerLink="./pending"  routerLinkActive="active">
+        <mat-icon class="dot">brightness_1</mat-icon>
+        <span class="nav-caption">pending</span>
+    </a>
+    <a mat-list-item routerLink="./revaluatereport"  routerLinkActive="active">
+        <mat-icon class="dot">brightness_1</mat-icon>
+        <span class="nav-caption">reevaluation Report</span>
+    </a>
+
+</div> -->
+<!-- -------Evaluate Samples ------------ -->
+<!-- <a mat-list-item   (click)="showSubmenu2 = !showSubmenu2;" class="parent" >
+
+    <span class=" full-width  nav-caption" *ngIf="isExpanded2 || isShowing2">Evaluate Samples</span>
+
+    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu2}" *ngIf="isExpanded2 || isShowing2">expand_more
+    </mat-icon>
+</a>
+<div class="submenu" [ngClass]="{'expanded' : showSubmenu2}" *ngIf="isShowing2 || isExpanded2">
+
+
+    <a mat-list-item routerLink="./sample"  routerLinkActive="active">
+        <mat-icon class="dot">brightness_1</mat-icon>
+        <span class="nav-caption">Samples</span>
+    </a>
+
+
+</div> -->
+
+
+
+    <!-- -------------------Reports----------------- -->
+    <!-- <a mat-list-item   (click)="showSubmenu4 = !showSubmenu4;" class="parent" >
+
+        <span class="full-width  nav-caption" *ngIf="isExpanded4 || isShowing4">Reports</span>
+
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu4}" *ngIf="isExpanded4 || isShowing4">expand_more
+        </mat-icon>
+    </a>
+    <div class="submenu" [ngClass]="{'expanded' : showSubmenu4}" *ngIf="isShowing4 || isExpanded4">
+
+
+        <a mat-list-item    (click)="showSubmenu5 = !showSubmenu5;">
+            <mat-icon class="dot">brightness_1</mat-icon>
+            <span class="full-width  nav-caption" *ngIf="isExpanded5 || isShowing5">Detailed Report</span>
+            <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu5}" *ngIf="isExpanded5 || isShowing5">expand_more
+            </mat-icon>
+        </a>
+        <div class="submenu" [ngClass]="{'expanded' : showSubmenu5}" *ngIf="isShowing5 || isExpanded5">
+
+            <a mat-list-item routerLink="./detailedteamreport"  routerLinkActive="active">
+                <mat-icon class="dot1">brightness_1</mat-icon>
+                <span class="nav-caption">Team</span>
+            </a>
+
+            </div>
+
+
+
+    </div> -->
+</mat-list>
+
+
+

@@ -1,0 +1,48 @@
+.student-element-detail{
+  width: 100%;
+  }
+  .student-detail-row {
+  min-height: 0;
+
+  }
+  .student-detail-row mat-cell
+  {
+  background: #ffffff;
+    box-shadow: inset 3px 0px 5px var(--third-color),inset -3px 0px 5px var(--third-color);
+
+
+  }
+/*
+
+  mat-cell, mat-header-cell,mat-header-cell{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10%  !important;
+    width: 10%  !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    } */
+
+    mat-cell:nth-child(9), mat-header-cell:nth-child(9){
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20%  !important;
+    width: 20%  !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+text-align: center !important;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+    }
+    .controles-container {
+      width: 100%;
+      padding: 1%;}

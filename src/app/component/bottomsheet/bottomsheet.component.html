@@ -1,0 +1,73 @@
+
+
+ <mat-toolbar class="d-flex">
+  <div class="w-50 text-left">
+    <mat-icon color="accent" style="vertical-align: middle;">share</mat-icon>
+  <span>  Add Logic</span>
+        <span class="fill-remaining-space"></span>
+      </div>
+        <div class="w-50 text-right">
+      <button class="btn-dialog-close" mat-stroked-button  tabIndex="-1" (click)="onClose()"><mat-icon>clear</mat-icon></button>
+
+      </div>
+</mat-toolbar>
+
+
+
+<div class="my-4">
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <span class="topic"></span>
+    <div>
+      <span>If &nbsp;&nbsp; <strong color="text-success"> ResponseType </strong> &nbsp; &nbsp; </span>
+      <br>
+
+<div class="mt-3">
+  <mat-form-field appearance="outline">
+    <mat-label>status</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="status">
+      <!-- <mat-option *ngFor="let food of foods" [value]="food.value"> -->
+      <mat-option value="Name is">
+        Name is
+      </mat-option>
+      <mat-option value="Name is not">
+        Name is not
+      </mat-option>
+      <mat-option value="exists">
+        exists
+      </mat-option>
+      <mat-option value="does not exists">
+        does not exists
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp; &nbsp;
+  <span>then</span>
+  &nbsp; &nbsp;
+  <mat-form-field appearance="outline">
+    <mat-label><mat-icon>add</mat-icon>trigger</mat-label>
+    <mat-select [(ngModel)]="selectedtrigger" name="tigger">
+
+      <mat-option value="Require Action">
+       Require Action
+      </mat-option>
+      <mat-option value="Require evidence">
+        Require evidence
+      </mat-option>
+      <mat-option value="Notify">
+      Notify
+      </mat-option>
+      <mat-option value="Ask question">
+        Ask question
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+</div>
+
+
+  </li>
+
+  </ul>
+</div>

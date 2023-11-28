@@ -1,0 +1,9 @@
+
+  .content-container:first-of-type{
+    background-color: var(--cr2-color);
+    color: white;
+    font-size: 19px;
+    font-weight: 900;
+  }
+
+

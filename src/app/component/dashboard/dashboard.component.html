@@ -1,0 +1,258 @@
+<!--  ------main----------------- -->
+<mat-card class="example-card" style="padding-bottom: 10px !important; ">
+
+    <div class="caption"><span>Evaluate Statistics</span></div>
+    <!-- first card -->
+    <div class="pt-5 d-flex">
+        <div class="col-sm-12 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="font-weight-bold text-info text-uppercase mb-1">Best Revaluation</div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-1 mr-5 font-weight-bold text-gray-800">Date : <span
+                                            class="res">12/5/2020</span></div>
+                                    <div class="h5 mb-0 mr-5 font-weight-bold text-gray-800">Status :<span
+                                            class="res">Success</span> </div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar" [style.width.%]="92"
+                                            aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <span class="percentage"> 92</span>
+                            <mat-icon>%</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- second card -->
+        <div class="col-sm-12 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="font-weight-bold text-info text-uppercase mb-1">Lowest Revaluation</div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-1 mr-5 font-weight-bold text-gray-800">Date :<span
+                                            class="res">12/5/2020</span> </div>
+                                    <div class="h5 mb-0 mr-5 font-weight-bold text-gray-800">Status : <span
+                                            class="res">Success</span></div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar" [style.width.%]="54"
+                                            aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <span class="percentage"> 54</span>
+                            <mat-icon>%</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div class="d-flex">
+        <div class="col-sm-12 col-md-8">
+
+            <div class="mx-0 pt-4  shadow card border-left-info  " style="height:468px;">
+
+                <div class="chart-wrapper mb-5 ">
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [colors]="barcolors"
+                        [chartType]="barChartType"  [options]="barChartOptions" [plugins]="barChartPlugins"
+                        [legend]="barChartLegend">
+                    </canvas>
+                </div>
+                <div class="detailscharttxt">
+                    <div class="detailschartblocks">
+
+
+                        <span id="MainContent_monthstat_lbl" class="lblbigtxt">9.734</span>
+                        <label class="lblbigtxtunder">This Month</label>
+                    </div>
+                    <div class="detailschartblocks">
+
+                        <span id="MainContent_totalevu_lbl" class="lblbigtxt">125,457</span>
+
+                        <label class="lblbigtxtunder">Total Evaluate</label>
+                    </div>
+
+                    <div class="detailschartblocks">
+
+
+                        <span id="MainContent_totalevoustat_lbl" class="lblbigtxt">+ 17%</span>
+                        <label class="lblbigtxtunder">Total </label>
+                    </div>
+               
+                <hr class="breakline">
+                <div class="detailschartblocks">
+                    <label class="lblevaulatestat">Evaluate Done</label>
+                </div>
+                <div class="detailschartblocks">
+                    <label class="lblevaulatestat2">15<sub style="font-size: 11px;">Done Till Now</sub></label>
+
+                </div>
+                <div class="detailschartblocks">
+                    <label class="lblevaulatestat3">50<sub style="font-size: 11px;">Required</sub></label>
+                </div>
+            </div>
+
+            </div>
+
+
+
+        </div>
+       
+        <div class="col-sm-12 col-md-4 pl-0 ">
+            <div class="blocksmall  shadow">
+                <div class="captionComment"><span>Last Evaluation</span></div>
+
+                <div class="tableindexdiv mt-5" tabindex="5000">
+
+                    <table width="100%"  class="tableindex">
+                        <tbody>
+                            <tr>
+                                <td style="width:10%;">
+                                    <label class="datelblindex">Date</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast" class="lblindex">14/07/2013</span>
+                                </td>
+                                <td style="width:10%;">
+                                    <label class="statuslblindex">Status</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast1" class="lblindex2">Success</span>
+                                </td>
+                                <td >
+                                    <input type="submit" name="ctl00$MainContent$Button2" value="Details"
+                                        id="MainContent_Button2" class="flatbtnindex ">
+                                </td>
+
+                            </tr>
+
+
+
+
+                            <tr>
+                                <td style="width:10%;">
+                                    <label class="datelblindex">Date</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast12" class="lblindex">14/07/2013</span>
+                                </td>
+                                <td style="width:10%;">
+                                    <label class="statuslblindex">Status</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast2" class="lblindex2">Success</span>
+                                </td>
+                                <td>
+                                    <input type="button" class="flatbtnindex " value="Details">
+                                </td>
+
+                            </tr>
+
+
+
+
+
+                            <tr style="background-color: #f7b7b7;">
+                                <td style="width:10%;">
+                                    <label class="datelblindex">Date</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast5" class="lblindex">14/09/2013</span>
+                                </td>
+                                <td style="width:10%;">
+                                    <label class="statuslblindex">Status</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast6" class="lblindex2">Fail</span>
+                                </td>
+                                <td>
+                                    <input type="button" class="flatbtnindex " value="Details">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td style="width:10%;">
+                                    <label class="datelblindex">Date</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast88" class="lblindex">14/07/2013</span>
+                                </td>
+                                <td style="width:10%;">
+                                    <label class="statuslblindex">Status</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast34" class="lblindex2">Success</span>
+                                </td>
+                                <td>
+                                    <input type="button" class="flatbtnindex " value="Details">
+                                </td>
+
+                            </tr>
+
+
+
+
+                            <tr style="background-color: #f7b7b7;">
+                                <td style="width:10%;">
+                                    <label class="datelblindex">Date</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast122" class="lblindex">14/07/2013</span>
+                                </td>
+                                <td style="width:10%;">
+                                    <label class="statuslblindex">Status</label>
+                                </td>
+                                <td style="width:30%;">
+                                    <span id="MainContent_lbldatelast67" class="lblindex2"> Fail</span>
+                                </td>
+                                <td>
+                                    <input type="button" class="flatbtnindex " value="Details">
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- comments -->
+
+            <div class="blocksmall mt-3  shadow">
+                <div class="captionComment"><span>Critical Comments</span></div>
+               <div class="box mt-5 py-1 px-2">
+                <mat-icon class="rotate">format_quote</mat-icon>
+                <mat-form-field class="w-100" appearance="outline">
+                <textarea  matInput></textarea>
+                 </mat-form-field>
+                <mat-icon class="float-right">format_quote</mat-icon>
+               </div>
+</div>
+        </div>
+    </div>
+</mat-card>
+<!-- <app-loader></app-loader> -->

@@ -1,0 +1,60 @@
+<app-header (sidenavToggle)="onToolbarMenuToggle()"></app-header>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen" opened>
+        <app-sidebar></app-sidebar>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content #side  [ngStyle]="{ 'margin-left.px': contentMargin }">
+      <!-- <app-header (sidenavToggle)="onToolbarMenuToggle()"></app-header> -->
+      <mat-toolbar class="subheader">
+        <div class="search-div" fxLayout="row">
+
+            <span class="title mx-3" routerLink="/template">
+                 Template
+            </span>
+
+
+
+        </div>
+    </mat-toolbar>
+        <main #main>
+
+            <router-outlet>
+            </router-outlet>
+            <ngx-spinner type="timer">
+              <h5>Loading</h5>
+            </ngx-spinner>
+            <app-footer></app-footer>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+<!-- <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+
+<mat-sidenav-container class="example-sidenav-container"
+[style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+  [fixedInViewport]="mobileQuery.matches">
+      <app-sidebar></app-sidebar>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header (sidenavToggle)="snav.toggle()"></app-header>
+
+
+      <main #main>
+
+          <router-outlet>
+          </router-outlet>
+          <ngx-spinner type="timer">
+            <h5>Loading</h5>
+          </ngx-spinner>
+          <app-footer></app-footer>
+      </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div> -->
