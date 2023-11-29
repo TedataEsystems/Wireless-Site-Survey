@@ -28,6 +28,8 @@ import { TemplateFormComponent } from '../../../component/template-form/template
 import { TemplateComponent } from '../../../component/template/template.component';
 import { BottomsheetComponent } from '../../../component/bottomsheet/bottomsheet.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { SendMailComponent } from '../../../component/send-mail/send-mail.component';
+import { ChangePasswordComponent } from '../../../component/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     LoaderComponent,
     TemplateFormComponent,
     TemplateComponent,
-    BottomsheetComponent
+    BottomsheetComponent,
+    SendMailComponent,
+    ChangePasswordComponent
 
   ],
   imports: [

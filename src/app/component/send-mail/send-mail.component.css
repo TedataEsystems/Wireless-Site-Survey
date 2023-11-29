@@ -1,0 +1,33 @@
+
+  /* new */
+  .border-left-info {
+    border-left: .25rem solid  #576673!important;
+}
+.align-items-center {
+    align-items: center!important;
+}
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    padding-top: 20px;
+}
+.text-xs {
+    font-size: .8rem;
+}
+
+.text-info {
+    color: var(--main-color)!important;
+    font-size: 16px;
+    background: var(--third-color);
+    padding: 10px 5px;
+    border-radius: 3px;
+}
+mat-form-field{
+  margin-bottom: 5px;
+}
+mat-card{
+  padding: 0 !important;
+  background-color: transparent !important;
+
+}

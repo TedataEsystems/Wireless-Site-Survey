@@ -61,9 +61,16 @@ ul{
   font-size: 18px;
 }
 li:nth-child(2){
-  background: var(--fifth-color);
+  background:#e9e9e9;
   padding-right: 5px;
-  color: var(--seconed-color);
+  color: var(--main-color);
+  font-weight: bold;
+
+}
+li:nth-child(2) .mat-icon-button{
+  /* background: var(--forth-color) !important; */
+  padding-right: 5px;
+  color: var(--main-color);
   font-weight: bold;
 
 }

@@ -1,0 +1,75 @@
+<!--  ------main----------------- -->
+<mat-card class="example-card p-0">
+
+  <form
+  >
+
+
+    <div class="row">
+
+<div class="col-sm-12 col-md-12">
+  <div class="card border-left-info shadow h-100">
+      <div class="card-body">
+          <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                  <div class="font-weight-bold text-info text-uppercase mb-5">Send Mail</div>
+                  <div class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="h6 mb-4 mr-5 font-weight-bold text-gray-800">From : </div>
+                      <div class="h6 mb-4 mr-5 font-weight-bold text-gray-800">To : </div>
+                      <div class="h6 mb-4 mr-5 font-weight-bold text-gray-800">Subject : </div>
+                      <div class="h6 mb-4 mr-5 font-weight-bold text-gray-800">Message : </div>
+
+
+                  </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Email">
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Please Add Emails seperated by  ' ,  '">
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Mail Subject">
+                      </mat-form-field>
+                    </div>
+
+                    <div class="mt-4">
+                    <angular-editor   id="editor1"   [config]="editorConfig"></angular-editor>
+                  </div>
+                  </div>
+
+
+                        <div class="w-100 text-center mt-5">
+                          <button
+                            mat-raised-button
+                            class="w-25 text-white submit"
+                            type="submit"
+                          >
+                            Send
+                          </button>
+
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+    </div>
+  </form>
+</mat-card>
+
+<!-- ---------------------form--------------------------- -->

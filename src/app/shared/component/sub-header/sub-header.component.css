@@ -2,7 +2,9 @@
     height: 70px;
     font-size: 13px;
     color: #012535;
-    background-color: aqua;
+    background-color: var(--main-color);
+    color: #fff;
+    line-height: 2;
     justify-content: center;
    margin-top:40px;
 }

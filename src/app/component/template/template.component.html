@@ -3,13 +3,7 @@
 <!--  ------main----------------- -->
 <mat-card class="example-card">
 
-  <mat-card-header>
-    <mat-card-title>
-      Show Pending Sales Requests
-    </mat-card-title>
-  </mat-card-header>
 
-  <mat-divider></mat-divider>
   <div class="search-div mt-3" fxLayout="row">
       <mat-form-field class="search-form-field" floatLabel="never">
           <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
@@ -33,7 +27,7 @@
         <mat-cell *matCellDef="let element" > {{element.id}} </mat-cell>
     </ng-container>
 
-        <ng-container matColumnDef="select">
+        <!-- <ng-container matColumnDef="select">
           <mat-header-cell *matHeaderCellDef>
             <mat-checkbox (change)="$event ? toggleAllRows() : null"
                           [checked]="selection.hasValue() && isAllSelected()"
@@ -48,7 +42,7 @@
                           [aria-label]="checkboxLabel(row)">
             </mat-checkbox>
             </mat-cell>
-        </ng-container>
+        </ng-container> -->
 
 
         <ng-container matColumnDef="template">
@@ -78,7 +72,7 @@
         <ng-container matColumnDef="Inspection">
           <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Inspection</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{element.Access}} 
+            {{element.Access}}
             </mat-cell>
       </ng-container>
 

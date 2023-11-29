@@ -58,7 +58,7 @@ export class TemplateComponent implements OnInit {
 
    @ViewChild(MatSort) sort?:MatSort ;
    @ViewChild(MatPaginator) paginator?:MatPaginator ;
-   displayedColumns: string[] = ['select','Id','template','LastPublish','LastModified', 'Schedule','Access','Inspection', 'action'];
+   displayedColumns: string[] = ['Id','template','LastPublish','LastModified', 'Schedule','Access','Inspection', 'action'];
    dataSource = new MatTableDataSource(ELEMENT_DATA);
   ngOnInit(): void {
   }
@@ -102,7 +102,7 @@ export class TemplateComponent implements OnInit {
       });
 
     }
-    
+
 
     onselectcheckall(e:Event){}
 

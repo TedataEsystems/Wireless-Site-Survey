@@ -2,12 +2,14 @@
   <div class="content-container pt-1 pb-2 pl-3 ">
    <span><mat-icon>delete_forever</mat-icon></span>
      <span class="ml-2">Delete</span>
-
+<span  (click)="onDelete()">
+  <mat-icon>close</mat-icon>
+</span>
 
   </div>
-  <div  class="content-container py-3">
+  <div  class="content-container py-4">
       <span class="content-span ">
-          Are you sure you want to <strong>delete</strong> this record?
+          Are you sure you want to <strong>delete</strong> this Request?
       </span>
   </div>
   <div class="content-container  full-width">

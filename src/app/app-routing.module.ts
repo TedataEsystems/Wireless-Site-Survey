@@ -5,6 +5,8 @@ import { TemplateFormComponent } from './component/template-form/template-form.c
 import { TemplateComponent } from './component/template/template.component';
 import { LayoutComponent } from './shared/component/layout/layout.component';
 import { LoginComponent } from './shared/component/login/login.component';
+import { SendMailComponent } from './component/send-mail/send-mail.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
     {
       path:'newRequest',
       component:TemplateFormComponent
+    },
+    {
+      path:'sendMail',
+      component:SendMailComponent
+    },
+    {
+      path:'changePassword',
+      component:ChangePasswordComponent
     },
 
 

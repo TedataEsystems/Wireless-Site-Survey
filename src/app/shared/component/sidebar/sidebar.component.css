@@ -127,8 +127,8 @@ min-width: 250px !important;
 .mat-list-base{
   padding-top: 0px;
   padding-top: 0px;
-  height: 100%;
-  overflow: inherit;
+  /* height: 100%;
+  overflow: inherit; */
 }
 #sidenav.menu-close mat-list-item mat-icon:first-of-type {
   margin-right: 20px !important;
