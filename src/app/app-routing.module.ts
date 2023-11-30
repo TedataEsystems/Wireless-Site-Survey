@@ -7,12 +7,17 @@ import { LayoutComponent } from './shared/component/layout/layout.component';
 import { LoginComponent } from './shared/component/login/login.component';
 import { SendMailComponent } from './component/send-mail/send-mail.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { RegisterComponent } from './shared/component/register/register.component';
 
 const routes: Routes = [
   {
     path:'login',
   component:LoginComponent,
  },
+ {
+  path:'register',
+component:RegisterComponent,
+},
   {
     path:'',
     component: LayoutComponent,

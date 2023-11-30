@@ -1,0 +1,164 @@
+
+.content-body{
+  min-height:100vh;
+   padding:8em 1rem 30px 1rem;
+
+   background:url(../../../../assets/image/shattered_.png);
+
+background-repeat: repeat;
+background-attachment: fixed;
+text-align: center;
+   display: block;
+   position: relative;
+ }
+
+
+ h2{
+   text-align: left;
+     margin-left: 10%;
+     color: white;
+
+
+
+     /* visibility: hidden; */
+ }
+ mat-card{
+   background-color:var(--main-color) !important;
+   max-width: 570px;
+   margin: 2em auto 2em auto;
+   text-align: center;
+
+   height: 430px;
+
+   padding: 15px 15px 0 15px !important;
+   color: var(--font-color)!important;
+
+   position: relative;
+   /* border-radius: 20px 0 !important; */
+
+
+ }
+ .mat-card:not([class*=mat-elevation-z]){
+   box-shadow: 14px 0px 20px -9px rgb(30 30 31), -14px 10px 20px -9px rgb(30 30 31) !important;
+
+ }
+ .header{
+    /* position: absolute; */
+   text-align: center;
+   margin: 0 auto 30px auto;
+   width: 300px;
+   /* height: 90px; */
+ align-items: center;
+   padding:30px 15px
+
+
+ }
+ .full-width{
+   width: 100%;
+ }
+ .forgot-password{
+   padding-left: 0px;
+ }
+ .email-input{
+   padding-top: 20px;
+ }
+ .aLink{
+   float: right;
+   padding-right:60px;
+   text-decoration:none;
+ }
+ .form-input{
+   margin-bottom:20px
+ }
+ .remember{
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  height: 40px;
+  text-align: left;
+  color: #fff;
+  line-height: 2;
+  background-color: #981018;
+ }
+ .login{
+   background-color: var(--forth-color);
+   color: #ffffff;
+   width: 100%;
+   border-radius: 5px;
+   margin-top: 5px;
+   font-size: 18px;
+   letter-spacing: 1px;
+  border: 1px solid var(--fifth-color);
+ }
+ .mat-input-element{
+   color: var(--fifth-color) !important;
+ }
+mat-label{
+   color: var(--main-color) !important;
+
+ }
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover,
+ input:-webkit-autofill:focus
+  { -webkit-text-fill-color: var(--fifth-color);
+   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+   transition: background-color 5000s ease-in-out 0s;
+ }
+ .mat-form-field{
+   margin-bottom: 40px !important;
+
+ }
+ .mat-typography h2 {
+
+   margin: 0 0 25px;
+ }
+ .mat-button-wrapper{
+   color: var(--main-color) !important;
+ }
+ .mat-icon-button{
+   color:#c4c4c4;
+ }
+ .msg-error{
+   height: 10px;
+   font-weight: bold;
+   text-decoration:none;
+   font-size: 16px;
+   color: #fff;
+ }
+ .msg-error mat-icon{
+   vertical-align: bottom;
+ }
+ mat-error{
+   font-weight: bold;
+ }
+
+.rights{
+ color:var(--font-color);
+ font-size: 14px;
+
+ position: relative;
+}
+.tool{
+ position: absolute;
+   top: -10px;
+   text-align: center;
+   background-color: var(--forth-color);
+   padding: 6px ;
+   right:-10px;
+  width: 45px;
+  height: 45px;
+  line-height: 2;
+   border-radius:50%;
+
+}
+.topic{
+ color: #fff;
+ text-shadow: 0px 4px 3px #111a2b;
+ font-size: 20px;
+}
+
+mat-icon[mat-icon-button]
+{
+ color: var(--font-color);
+ font-size: 14px !important;
+}

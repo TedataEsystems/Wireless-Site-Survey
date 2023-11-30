@@ -20,7 +20,7 @@
           Account Login :
            </h2>
 
-           <form  class="mt-5" (ngSubmit)="onSubmit()" name="form" [formGroup]="form">
+           <form  class="mt-3" (ngSubmit)="onSubmit()" name="form" [formGroup]="form">
             <mat-form-field class="w-100" appearance="outline">
 
               <input formControlName="username" matInput required placeholder="Email">
@@ -47,11 +47,26 @@
               <mat-error *ngIf="form.controls['password'].errors?.required">*Password is Required </mat-error>
 
           </mat-form-field>
+            <!--    OTP      -->
+            <mat-form-field class="w-100"  appearance="outline">
+
+              <input  matInput type="text" placeholder="OTP" required>
+
+
+
+
+              <mat-error>*OTP is Required </mat-error>
+
+          </mat-form-field>
           <div class="remember">
             <mat-checkbox class="example-margin">Remember me</mat-checkbox>
 
          </div>
               <button mat-flat-button class="login"   type="submit">Login</button>
+              <div class="register mt-2">
+                <span class="example-margin text-white" routerLink="/register"><span class="text-dark">New Account ?</span> register Now</span>
+
+             </div>
               <div class="msg-error pt-3" *ngIf="warning">
                 <mat-error >
                    <mat-icon>warning</mat-icon>

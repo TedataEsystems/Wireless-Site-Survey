@@ -104,9 +104,10 @@ canvas{
 }
 .datelblindex {
   font-size: 14px;
-  color: var(--cr2-color);
+  color: var(--fifth-color);
   margin-left: 2px;
   padding: 5px;
+  font-weight: 600;
   float: left;
 }
 .flatbtnindex {
@@ -122,8 +123,13 @@ canvas{
 }
 .lblindex {
   font-size: 14px;
-  color: var(--second-color);
+  color: var(--forth-color);
+  font-weight: 800;
   padding: 5px;
   float: left;
   width: 73px;
+}
+tr:not(:last-of-type)
+{
+  border-bottom:.7px solid var(--third-color)
 }

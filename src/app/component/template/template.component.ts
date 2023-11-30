@@ -52,7 +52,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TemplateComponent implements OnInit {
   searchKey:string ='' ;
-  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService, private _bottomSheet: MatBottomSheet ) {
+  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
     this.titleService.setTitle("Template");
    }
 

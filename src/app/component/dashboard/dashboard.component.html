@@ -1,176 +1,151 @@
 <!--  ------main----------------- -->
 <mat-card class="example-card" >
+  <div class="row">
+    <div class="col-sm-12 col-md-3 mx-auto mb-2">
+        <div class="card border-left-info shadow h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2 text-center">
+                        <div class="font-weight-bold text-info  mb-1">Pending Sales</div>
+                        <div class="row  ">
+                            <div class="col-auto w-100 ">
+                                <div class="h5 mb-1 font-weight-bold text-gray-800 text-center">0</div>
 
+                            </div>
 
+                        </div>
+                    </div>
 
-    <div class="d-flex mb-2">
-        <div class="col-sm-12 col-md-8 ">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row ">
+        <div class="col-sm-12 col-md-8 mb-3">
 
-            <div class="mx-0 pt-4  shadow card border-left-info" >
+          <div class="card border-left-info shadow h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col">
+                        <div class="font-weight-bold text-info  mb-1">Open & Closed Requested Chart / <span class="text-white"> November 2023</span></div>
 
-                <div class="chart-wrapper mb-5 ">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [colors]="barcolors"
-                        [chartType]="barChartType"  [options]="barChartOptions" [plugins]="barChartPlugins"
-                        [legend]="barChartLegend">
+                <div class="chart-wrapper mt-4">
+                    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [colors]="lineChartColors"
+                        [chartType]="lineChartType"  [options]="lineChartOptions" [plugins]="lineChartPlugins"
+                        [legend]="lineChartLegend">
                     </canvas>
                 </div>
 
 
             </div>
 
-
+</div>
+</div>
+</div>
 
         </div>
 
-        <div class="col-sm-12 col-md-4 pl-0 ">
-            <div class="blocksmall  shadow">
-
-
-                <div class="tableindexdiv mt-5" tabindex="5000">
+        <div class="col-sm-12 col-md-4 mb-3">
+          <div class="card border-left-info shadow h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col">
+                        <div class="font-weight-bold text-info  mb-1">Requests Summary /<span class="text-white"> November 2023</span></div>
 
                     <table width="100%"  class="tableindex">
                         <tbody>
                             <tr>
-                                <td style="width:10%;">
-                                    <label class="datelblindex">Date</label>
+                                <td>
+                                    <label class="datelblindex">Requestes Created Today</label>
                                 </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast" class="lblindex">14/07/2013</span>
+                                <td>
+                                    <span id="MainContent_lbldatelast" class="lblindex">0</span>
                                 </td>
-                                <td style="width:10%;">
-                                    <label class="statuslblindex">Status</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast1" class="lblindex2">Success</span>
-                                </td>
-                                <td >
-                                    <input type="submit" name="ctl00$MainContent$Button2" value="Details"
-                                        id="MainContent_Button2" class="flatbtnindex ">
-                                </td>
+
 
                             </tr>
-
-
-
-
                             <tr>
-                                <td style="width:10%;">
-                                    <label class="datelblindex">Date</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast12" class="lblindex">14/07/2013</span>
-                                </td>
-                                <td style="width:10%;">
-                                    <label class="statuslblindex">Status</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast2" class="lblindex2">Success</span>
-                                </td>
-                                <td>
-                                    <input type="button" class="flatbtnindex " value="Details">
-                                </td>
-
-                            </tr>
+                              <td>
+                                  <label class="datelblindex">Requests Created This Month</label>
+                              </td>
+                              <td>
+                                  <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                              </td>
 
 
+                          </tr>
+                          <tr>
+                            <td>
+                                <label class="datelblindex">Requested Created Today</label>
+                            </td>
+                            <td>
+                                <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                            </td>
 
 
-
-                            <tr style="background-color: #f7b7b7;">
-                                <td style="width:10%;">
-                                    <label class="datelblindex">Date</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast5" class="lblindex">14/09/2013</span>
-                                </td>
-                                <td style="width:10%;">
-                                    <label class="statuslblindex">Status</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast6" class="lblindex2">Fail</span>
-                                </td>
-                                <td>
-                                    <input type="button" class="flatbtnindex " value="Details">
-                                </td>
-
-                            </tr>
-
-                            <tr>
-                                <td style="width:10%;">
-                                    <label class="datelblindex">Date</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast88" class="lblindex">14/07/2013</span>
-                                </td>
-                                <td style="width:10%;">
-                                    <label class="statuslblindex">Status</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast34" class="lblindex2">Success</span>
-                                </td>
-                                <td>
-                                    <input type="button" class="flatbtnindex " value="Details">
-                                </td>
-
-                            </tr>
+                        </tr>
+                        <tr>
+                          <td>
+                              <label class="datelblindex">Requestes Completed Today</label>
+                          </td>
+                          <td>
+                              <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                          </td>
 
 
+                      </tr>
+                      <tr>
+                        <td>
+                            <label class="datelblindex">Requestes Completed This Month</label>
+                        </td>
+                        <td>
+                            <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                        </td>
 
 
-                            <tr style="background-color: #f7b7b7;">
-                                <td style="width:10%;">
-                                    <label class="datelblindex">Date</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast122" class="lblindex">14/07/2013</span>
-                                </td>
-                                <td style="width:10%;">
-                                    <label class="statuslblindex">Status</label>
-                                </td>
-                                <td style="width:30%;">
-                                    <span id="MainContent_lbldatelast67" class="lblindex2"> Fail</span>
-                                </td>
-                                <td>
-                                    <input type="button" class="flatbtnindex " value="Details">
-                                </td>
-
-                            </tr>
+                    </tr>
+                    <tr>
+                      <td>
+                          <label class="datelblindex">Pending  Vendor (exceed 5 Day)</label>
+                      </td>
+                      <td>
+                          <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                      </td>
 
 
+                  </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            </div>
+          </div>
+          </div>
 
-        </div>
+
     </div>
-     <!-- first card -->
-     <div class=" d-flex">
+
+     <div class="row">
       <div class="col-sm-12 col-md-6 mb-4">
           <div class="card border-left-info shadow h-100">
               <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="font-weight-bold text-info text-uppercase mb-1">Best Revaluation</div>
-                          <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                  <div class="h5 mb-1 mr-5 font-weight-bold text-gray-800">Date : <span
-                                          class="res">12/5/2020</span></div>
-                                  <div class="h5 mb-0 mr-5 font-weight-bold text-gray-800">Status :<span
-                                          class="res">Success</span> </div>
-                              </div>
-                              <div class="col">
-                                  <div class="progress progress-sm mr-2">
-                                      <div class="progress-bar bg-info" role="progressbar" [style.width.%]="92"
-                                          aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                              </div>
-                          </div>
+                      <div class="col">
+                          <div class="font-weight-bold text-info  mb-1">Monthly Chart /<span class="text-white"> November 2023</span></div>
+                          <div class="chart-wrapper rounded mb-4">
+                            <canvas baseChart class="creator"
+                            [data]="doughnutChartData"
+                            [labels]="doughnutChartLabels"
+                            [colors]="colors"
+                            [plugins]="barChartPlugins"
+
+                            [chartType]="doughnutChartType"
+                           >
+                          </canvas>
+                        </div>
                       </div>
-                      <div class="col-auto">
-                          <span class="percentage"> 92</span>
-                          <mat-icon>%</mat-icon>
-                      </div>
+
                   </div>
               </div>
           </div>
@@ -180,27 +155,19 @@
           <div class="card border-left-info shadow h-100">
               <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="font-weight-bold text-info text-uppercase mb-1">Lowest Revaluation</div>
-                          <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                  <div class="h5 mb-1 mr-5 font-weight-bold text-gray-800">Date :<span
-                                          class="res">12/5/2020</span> </div>
-                                  <div class="h5 mb-0 mr-5 font-weight-bold text-gray-800">Status : <span
-                                          class="res">Success</span></div>
-                              </div>
-                              <div class="col">
-                                  <div class="progress progress-sm mr-2">
-                                      <div class="progress-bar bg-info" role="progressbar" [style.width.%]="54"
-                                          aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                              </div>
-                          </div>
+                      <div class="col">
+                          <div class="font-weight-bold text-info  mb-1">Today Chart/<span class="text-white"> November 2023</span></div>
+                          <canvas baseChart class="creator"
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [colors]="colors"
+                          [plugins]="barChartPlugins"
+
+                          [chartType]="doughnutChartType"
+                         >
+                        </canvas>
                       </div>
-                      <div class="col-auto">
-                          <span class="percentage"> 54</span>
-                          <mat-icon>%</mat-icon>
-                      </div>
+
                   </div>
               </div>
           </div>

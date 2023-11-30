@@ -26,10 +26,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateFormComponent } from '../../../component/template-form/template-form.component';
 import { TemplateComponent } from '../../../component/template/template.component';
-import { BottomsheetComponent } from '../../../component/bottomsheet/bottomsheet.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SendMailComponent } from '../../../component/send-mail/send-mail.component';
 import { ChangePasswordComponent } from '../../../component/change-password/change-password.component';
+import { RegisterComponent } from '../../component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,9 @@ import { ChangePasswordComponent } from '../../../component/change-password/chan
     LoaderComponent,
     TemplateFormComponent,
     TemplateComponent,
-    BottomsheetComponent,
     SendMailComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    RegisterComponent
 
   ],
   imports: [
