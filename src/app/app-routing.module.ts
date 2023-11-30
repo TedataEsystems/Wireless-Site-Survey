@@ -8,6 +8,9 @@ import { LoginComponent } from './shared/component/login/login.component';
 import { SendMailComponent } from './component/send-mail/send-mail.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { RegisterComponent } from './shared/component/register/register.component';
+import { PendingPresalesComponent } from './component/pending-presales/pending-presales.component';
+import { PendingVendorComponent } from './component/pending-vendor/pending-vendor.component';
+import { CompletedComponent } from './component/completed/completed.component';
 
 const routes: Routes = [
   {
@@ -33,6 +36,22 @@ component:RegisterComponent,
     {
       path:'template',
       component:TemplateComponent
+    },
+
+
+    {
+      path:'pendingPresales',
+      component:PendingPresalesComponent
+    },
+
+    {
+      path:'pendingVendor',
+      component:PendingVendorComponent
+    },
+
+    {
+      path:'completed',
+      component:CompletedComponent
     },
 
     {
