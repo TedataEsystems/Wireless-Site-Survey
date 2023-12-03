@@ -75,7 +75,13 @@ export class LoginComponent implements OnInit {
       }
         , error => { this.notificationService.warn('Invalid UserName or Password') }
       );
-   this.router.navigate(['/template'], { relativeTo: this.route });
+  // this.router.navigate(['/template'], { relativeTo: this.route });
+
+
+        // window.location.href="/"
+
+
+   this.router.navigate(['/VerifyOTP'], { relativeTo: this.route });
     }
 
 

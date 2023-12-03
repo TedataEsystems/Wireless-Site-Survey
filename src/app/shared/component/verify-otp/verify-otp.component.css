@@ -17,18 +17,14 @@ text-align: center;
    text-align: left;
      margin-left: 3%;
      color: white;
-
-
-
-     /* visibility: hidden; */
  }
  mat-card{
    background-color:var(--main-color) !important;
-   max-width: 570px;
+   max-width: 370px;
    margin: 2em auto 2em auto;
-   text-align: center;
+   text-align: left;
 
-   height: 430px;
+   height: 360px;
 
    padding: 15px 15px 0 15px !important;
    color: var(--font-color)!important;
@@ -37,6 +33,12 @@ text-align: center;
    /* border-radius: 20px 0 !important; */
 
 
+ }
+ label{
+  color: #fff;
+ }
+ mat-hint{
+  color: #bcb9b9;
  }
  .mat-card:not([class*=mat-elevation-z]){
    box-shadow: 14px 0px 20px -9px rgb(30 30 31), -14px 10px 20px -9px rgb(30 30 31) !important;
@@ -131,7 +133,16 @@ mat-label{
  mat-error{
    font-weight: bold;
  }
-
+.WElogo{
+ position: absolute;
+left: 20px;
+   bottom: 5px;
+}
+.Esystems{
+ position: absolute;
+ right: 20px;
+ top: 5px;
+}
 .rights{
  color:var(--font-color);
  font-size: 14px;

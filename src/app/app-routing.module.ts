@@ -11,6 +11,7 @@ import { RegisterComponent } from './shared/component/register/register.componen
 import { PendingPresalesComponent } from './component/pending-presales/pending-presales.component';
 import { PendingVendorComponent } from './component/pending-vendor/pending-vendor.component';
 import { CompletedComponent } from './component/completed/completed.component';
+import { VerifyOTPComponent } from './shared/component/verify-otp/verify-otp.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
  {
   path:'register',
 component:RegisterComponent,
+},
+{
+  path:'verifyOTP',
+component:VerifyOTPComponent,
 },
   {
     path:'home',

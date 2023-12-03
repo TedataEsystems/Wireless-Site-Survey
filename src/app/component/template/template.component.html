@@ -23,59 +23,62 @@
 
     <mat-table [dataSource]="dataSource"  multiTemplateDataRows   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
 
-      <ng-container matColumnDef="Id" hidden>
+      <ng-container matColumnDef="ID" >
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
-        <mat-cell *matCellDef="let element" > {{element.id}} </mat-cell>
+        <mat-cell *matCellDef="let element" >
+          <!-- {{element.id}} -->
+        </mat-cell>
     </ng-container>
 
-        <!-- <ng-container matColumnDef="select">
-          <mat-header-cell *matHeaderCellDef>
-            <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                          [checked]="selection.hasValue() && isAllSelected()"
-                          [indeterminate]="selection.hasValue() && !isAllSelected()"
-                          [aria-label]="checkboxLabel()">
-            </mat-checkbox>
-          </mat-header-cell>
-          <mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="$event.stopPropagation()"
-                          (change)="$event ? selection.toggle(row) : null"
-                          [checked]="selection.isSelected(row)"
-                          [aria-label]="checkboxLabel(row)">
-            </mat-checkbox>
+
+
+        <ng-container matColumnDef="CustomerName">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <!-- {{element.CustomerName}} -->
             </mat-cell>
-        </ng-container> -->
-
-
-        <ng-container matColumnDef="template">
-            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Template</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.template}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="LastPublish">
-          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Last Publish</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.LastPublish}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="LastModified">
-        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Last Modified</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.LastModified}} </mat-cell>
-    </ng-container>
-
-
-        <ng-container matColumnDef="Schedule">
-            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Schedule</mat-header-cell>
-            <mat-cell *matCellDef="let element" > {{element.Schedule}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="Access">
-            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Access</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.Access}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Inspection">
-          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Inspection</mat-header-cell>
+        <ng-container matColumnDef="BranchName">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Branch Name</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{element.Access}}
+
+            <!-- {{element.BranchName}} -->
+          </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="L.CName">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>L.C Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.L.CName}} -->
+        </mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="L.CMobile">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> L.C Mobile</mat-header-cell>
+            <mat-cell *matCellDef="let element" >
+               <!-- {{element.L.CMobile}} -->
+              </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="AccountManager">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Account Manager</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+
+              <!-- {{element.AccountManager}} -->
+             </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Status">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Status</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!-- {{element.Status}} -->
             </mat-cell>
       </ng-container>
+      <ng-container matColumnDef="CreatedDate">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Created Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.CreatedDate | date:'short'}} -->
+          </mat-cell>
+    </ng-container>
 
         <ng-container matColumnDef="action" >
             <mat-header-cell mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
