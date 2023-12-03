@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     )
     {
 
-      this.titleService.setTitle("App | Login");
+      this.titleService.setTitle("Login");
 
 
 
