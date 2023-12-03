@@ -20,7 +20,7 @@ const routes: Routes = [
  },
  {
   path:'register',
-component:RegisterComponent,
+ component:RegisterComponent,
 },
 {
   path:'verifyOTP',
@@ -46,7 +46,8 @@ component:VerifyOTPComponent,
 
     {
       path:'pendingPresales',
-      component:PendingPresalesComponent
+      component:PendingPresalesComponent,
+     
     },
 
     {
