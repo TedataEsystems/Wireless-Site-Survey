@@ -408,7 +408,25 @@ snack-bar-container.success {
 .mat-expansion-panel-body{
   padding: 0 !important;
 }
+@media screen and (max-width: 720px) {
+  app-header mat-toolbar ul,app-header .mat-toolbar-single-row{
+    padding: 0 !important;
+  }
+  app-header .mat-icon-button{
+    width: 33px !important;
+    height: 33px !important;
+    line-height: 30px !important;
+  }
 
+  .brand img:first-child{
+    width: 80px !important;
+  }
+  .brand img:last-child{
+    width: 130px !important;
+  }
+
+
+}
            /* table responsive */
 
 
