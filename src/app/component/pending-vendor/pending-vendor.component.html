@@ -1,1 +1,163 @@
-<p>pending-vendor works!</p>
+
+
+<!--  ------main----------------- -->
+<mat-card class="example-card border-left-info ">
+
+  <div class="font-weight-bold text-info  mb-1">Show Pending Vendor Requests</div>
+
+  <div class="search-div mt-3" fxLayout="row">
+      <mat-form-field class="search-form-field" floatLabel="never">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+              <mat-icon>close</mat-icon>
+          </button>
+      </mat-form-field>
+      <button mat-button class="new" >
+          <mat-icon class="mr-1">print</mat-icon>Print
+      </button>
+  </div>
+
+
+
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table [dataSource]="dataSource"  multiTemplateDataRows   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
+
+      <ng-container matColumnDef="ID" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          <!-- {{element.id}} -->
+        </mat-cell>
+    </ng-container>
+
+
+
+        <ng-container matColumnDef="CustomerName">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <!-- {{element.CustomerName}} -->
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="BranchName">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Branch Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+
+            <!-- {{element.BranchName}} -->
+          </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="L.CName">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>L.C Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.L.CName}} -->
+        </mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="L.CMobile">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> L.C Mobile</mat-header-cell>
+            <mat-cell *matCellDef="let element" >
+               <!-- {{element.L.CMobile}} -->
+              </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Status">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Status</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!-- {{element.Status}} -->
+            </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="CreatedDate">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Created Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.CreatedDate | date:'short'}} -->
+          </mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="action" >
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+
+
+                <button mat-button   class="btn-success "  matTooltip="Edit">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button   class="btn-warning text-white mx-1"  matTooltip="Details" (click)="row.isExpanded = !row.isExpanded">
+                  <mat-icon>remove_red_eye</mat-icon>
+              </button>
+
+                <button mat-button   class="btn-danger" matTooltip="Delete" (click)="onDelete(row)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </mat-cell>
+
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+
+            <div class="row student-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+
+                      <div class="controles-container col-6 col-md-2 col-lg-2">
+                        <span class="header">Description</span>
+                        <p class="desc">Here description of the template... </p>
+                        </div>
+
+                        <div class="controles-container col-6 col-md-2 col-lg-2 ">
+                        <span class="header">Last Published by</span>
+                        <p class="desc"><span>UserName</span>&nbsp; <span>22/3/2022 </span>&nbsp; <span>6:10pm</span> </p>
+                        </div>
+
+                        <div class="controles-container col-6 col-md-2 col-lg-2">
+                        <span class="header">Last Modified by</span>
+                        <p class="desc"><span>UserName</span> &nbsp;<span>22/3/2022 </span> &nbsp;<span>6:10pm</span> </p>
+                        </div>
+
+                        <div class="controles-container col-6 col-md-2 col-lg-2">
+                        <span class="header">Created by</span>
+                        <p class="desc"><span>UserName</span> &nbsp;<span>22/3/2022 </span>&nbsp; <span>6:10pm</span> </p>
+                        </div>
+
+                        <div class="controles-container col-6 col-md-2 col-lg-2">
+                        <span class="header">Organization</span>
+                        <p class="desc">Macdonalds </p>
+                        </div>
+
+                        <div class="controles-container col-6 col-md-2 col-lg-2">
+                        <span class="header">Template Owner</span>
+                        <p class="desc"> <span>UserName</span> </p>
+                        </div>
+
+          </div>
+
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="7">
+              No data ...
+            </mat-footer-cell>
+
+        </ng-container>
+
+
+
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource.data.length==0 && dataSource !=null)}"></mat-footer-row>
+        <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true" sticky></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" class="student-element-row"
+        [class.student-expanded-row]="row.isExpanded"></mat-row>
+         <!-- Extra row to show detail content column -->
+        <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"></mat-row>
+
+    </mat-table>
+    <!-- end test -->
+    </div>
+    <!--
+    </ng-template> -->
+
+    <mat-paginator [pageSizeOptions]="[10,25, 50, 100]"   [pageSize]="10"   showFirstLastButtons></mat-paginator>
+
+  </mat-card>
+  <ngx-spinner type="timer">
+    <h5>Loading</h5>
+  </ngx-spinner>
