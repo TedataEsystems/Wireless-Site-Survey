@@ -1,0 +1,58 @@
+<!-- loader for loading login page -->
+<div class="content-body">
+  <div class="Logo mx-auto">
+
+    <img src="../../../../assets/image/soultion_logo.png">
+
+ </div>
+  <mat-card>
+
+      <mat-card-content>
+
+          <div class="tool">
+
+             <span class="topic"><mat-icon>lock</mat-icon></span>
+
+          </div>
+
+           <h2>
+
+          Verify Your OTP
+           </h2>
+           <mat-hint> A Verification Code has been sent to you , Please check and verify your account</mat-hint>
+
+
+           <form  class="mt-3" (ngSubmit)="onSubmit()" name="form" [formGroup]="form">
+            <label>* Verification Code</label>
+            <mat-form-field class="w-100" appearance="outline">
+
+              <input formControlName="OTP" matInput required placeholder="Enter verification Code">
+
+
+
+
+              <mat-error>
+                * verification Code is required
+              </mat-error>
+              <mat-error *ngIf="warning">
+                * verification Code is not valid
+              </mat-error>
+
+          </mat-form-field>
+
+
+              <button mat-flat-button class="login"   type="submit">Continue</button>
+
+
+          </form>
+
+      </mat-card-content>
+
+  </mat-card>
+
+  <div class="text-center mt-2">
+     <span class="rights">All rights reserved to TE<span class="text-danger">Data</span> 2015 </span>
+
+      </div>
+
+</div>

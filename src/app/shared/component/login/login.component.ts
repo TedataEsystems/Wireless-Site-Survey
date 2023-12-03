@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         // window.location.href="/"
 
 
-   this.router.navigate(['/template'], { relativeTo: this.route });
+   this.router.navigate(['/VerifyOTP'], { relativeTo: this.route });
     }
 
 

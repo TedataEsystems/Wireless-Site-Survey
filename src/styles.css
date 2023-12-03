@@ -798,7 +798,7 @@ mat-cell, mat-header-cell, mat-footer-cell{
 
 }
 
-app-login .mat-error,app-register .mat-error{
+app-login .mat-error,app-register .mat-error,app-verify-otp .mat-error{
   color:#fff;
 }
 .mat-checkbox-background{

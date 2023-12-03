@@ -33,6 +33,7 @@ import { RegisterComponent } from '../../component/register/register.component';
 import { PendingPresalesComponent } from 'src/app/component/pending-presales/pending-presales.component';
 import { PendingVendorComponent } from 'src/app/component/pending-vendor/pending-vendor.component';
 import { CompletedComponent } from 'src/app/component/completed/completed.component';
+import { VerifyOTPComponent } from '../../component/verify-otp/verify-otp.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CompletedComponent } from 'src/app/component/completed/completed.compon
     RegisterComponent,
     PendingPresalesComponent,
     PendingVendorComponent,
-    CompletedComponent
+    CompletedComponent,
+    VerifyOTPComponent
 
   ],
   imports: [
