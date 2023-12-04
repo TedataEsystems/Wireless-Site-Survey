@@ -19,7 +19,7 @@
       <span class="nav-caption">Home</span>
   </a>
 
-    <a mat-list-item routerLink="/newRequest" routerLinkActive="active" >
+    <a mat-list-item routerLink="./newRequest" routerLinkActive="active" >
       <mat-icon>reply_all</mat-icon>
       <span class="nav-caption">Add Request</span>
   </a>
@@ -33,19 +33,19 @@
     <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
 
 
-        <a mat-list-item routerLink="/template"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a mat-list-item routerLink="./template"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
 
             <span class="nav-caption">Pending Account Manager</span>
         </a>
-        <a mat-list-item routerLink="/pendingPresales"  routerLinkActive="active">
+        <a mat-list-item routerLink="./pendingPresales"  routerLinkActive="active">
 
             <span class="nav-caption">Pending Presales</span>
         </a>
-        <a mat-list-item routerLink="/pendingVendor"  routerLinkActive="active">
+        <a mat-list-item routerLink="./pendingVendor"  routerLinkActive="active">
 
           <span class="nav-caption">Pending Vendor</span>
       </a>
-      <a mat-list-item routerLink="/completed"  routerLinkActive="active">
+      <a mat-list-item routerLink="./completed"  routerLinkActive="active">
 
         <span class="nav-caption">Completed</span>
     </a>
