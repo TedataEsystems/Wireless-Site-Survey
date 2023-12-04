@@ -9,10 +9,11 @@ import screenfull from 'screenfull';
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
-
+  userName : string; 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.userName = localStorage.getItem("userName").toString();
   }
 
 
