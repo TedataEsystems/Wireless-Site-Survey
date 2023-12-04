@@ -224,7 +224,9 @@ snack-bar-container.success {
   .mat-toolbar{
       background-color:transparent;
   }
-
+  app-sub-header {
+    display: none;
+  }
 
            /* mat-confirm-dialog (customised dialog) */
            .confirm-dialog-container .mat-dialog-container {
@@ -417,6 +419,20 @@ snack-bar-container.success {
     height: 33px !important;
     line-height: 30px !important;
   }
+  app-sidebar .brand{
+    display: none;
+  }
+  app-sub-header {
+    display: block;
+  }
+  app-header .menu{
+    display: none;;
+  }
+  #sidenav.menu-open {
+    width: 100% !important;
+    height: 449px;
+    padding-top: 113px !important;
+}
 
   .brand img:first-child{
     width: 80px !important;
@@ -427,6 +443,11 @@ snack-bar-container.success {
 
 
 }
+
+
+
+
+
            /* table responsive */
 
 
@@ -887,9 +908,9 @@ mat-sidenav{
 .mat-drawer-container{
     background-color: #f8f9fa!important;
 }
-.mat-drawer:not(.mat-drawer-side){
+/* .mat-drawer:not(.mat-drawer-side){
     box-shadow: inset -5px 0px 5px #a59f76;
-}
+} */
 
 #sidenav {
     width: 236px;

@@ -15,21 +15,17 @@ import { VerifyOTPComponent } from "./shared/component/verify-otp/verify-otp.com
 
 const routes: Routes = [
   {
-    path: "login",
-    component: LoginComponent,
-  },
-  {
-    path: "register",
-    component: RegisterComponent,
-  },
-  {
-    path: "verifyOTP",
-    component: VerifyOTPComponent,
-  },
-  {
-    path: "",
-    component: LoginComponent,
-  },
+    path:'login',
+  component:LoginComponent,
+ },
+ {
+  path:'register',
+component:RegisterComponent,
+},
+{
+  path:'verifyOTP',
+component:VerifyOTPComponent,
+},
   {
     path: "home",
     component: LayoutComponent,
@@ -45,10 +41,10 @@ const routes: Routes = [
         component: TemplateComponent,
       },
 
-      {
-        path: "pendingPresales",
-        component: PendingPresalesComponent,
-      },
+    {
+      path:'pendingPresales',
+      component:PendingPresalesComponent
+    },
 
       {
         path: "pendingVendor",

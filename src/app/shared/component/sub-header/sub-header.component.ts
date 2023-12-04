@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sub-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubHeaderComponent implements OnInit {
 
-  constructor() { }
+  @Output() public sidenavToggle = new EventEmitter();
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+
+  public onToggleSidenav=()=> {
+    this.sidenavToggle.emit();
+     }
 }

@@ -1,8 +1,26 @@
 <mat-toolbar>
-    <div class="search-div" fxLayout="row">
-        <mat-list-item class="header-tag" routerLink="/"> Home </mat-list-item>/
-       
-        <mat-list-item class="header-tag active" routerLink="#" > PC Connect Request</mat-list-item>
-    
-    </div>
+    <!-- <div class="search-div" fxLayout="row"> -->
+        <!-- <mat-list-item class="header-tag" routerLink="/"> Home </mat-list-item>/
+
+        <mat-list-item class="header-tag active" routerLink="#" > PC Connect Request</mat-list-item> -->
+        <div class="menu">
+          <button
+            class="my-1 bg-transparent"
+            mat-icon-button
+            (click)="onToggleSidenav()"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div class="searchBox p-1">
+          <div class="box">
+            <input matInput class="input-search" placeholder="Search by Request ID">
+            <button class="btn-danger btn-search" mat-icon-button><mat-icon>search</mat-icon></button>
+          </div>
+
+
+
+        </div>
+
+    <!-- </div> -->
 </mat-toolbar>

@@ -1,10 +1,48 @@
 .mat-toolbar{
-    height: 70px;
+    height: 50px;
     font-size: 13px;
-    color: #012535;
-    background-color: var(--main-color);
+    background-color: var(--forth-color);
     color: #fff;
-    line-height: 2;
+    /* line-height: 2; */
     justify-content: center;
    margin-top:40px;
+   position: fixed;
+    top: 19px;
+    width: 100%;
+    z-index: 20;
+    box-shadow: 2px 2px 2px var(--fifth-color);
+}
+.box{
+  position: relative;
+  border-radius: 5px;
+  height: 40px;
+  background-color: #575757;
+
+}
+.input-search{
+  border:none !important;
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  height:100%;
+  width: 77%;
+  color: #d4d0d0 !important;
+}
+
+.btn-search{
+  border: none !important;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 35px;
+  height: 34px;
+  line-height: inherit;
+  border-radius: 5px;
+
+}
+.searchBox{
+  height: 100%;
+  background-color: var(--forth-color);
+  width: 80%;
 }
