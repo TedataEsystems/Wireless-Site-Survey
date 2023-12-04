@@ -5,4 +5,5 @@ export interface Iuser{
     error:string;
     userName:string;
     userGroup:string;
+    email : string
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import {ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label,MultiDataSet } from 'ng2-charts';
+import { IGraphDataCount } from 'src/app/shared/model/IGraphDataCount';
+import { DashboardService } from 'src/app/shared/service/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,13 +11,35 @@ import { Color, Label,MultiDataSet } from 'ng2-charts';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private title : Title) {
+  currentMonthAndYear: string;
+  graphDataCount = <IGraphDataCount>{};
+  constructor(private title : Title ,private dashboardService : DashboardService) {
     this.title.setTitle("Dashboard")
    }
 
   ngOnInit(): void {
+    this.GraphDataCount();
+    this.getCurrentMonthAndYear();
   }
+  getCurrentMonthAndYear(): void {
+    const currentDate = new Date();
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
 
+    const month = monthNames[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+
+    this.currentMonthAndYear = `${month} ${year}`;
+  }
+  GraphDataCount(){
+    this.dashboardService.GraphDataCount().subscribe((response)=>{
+      debugger;
+      console.log(response)
+      this.graphDataCount =  response.data
+    })
+  }
   /////////////////donut chart//////////////////
   doughnutChartLabels: Label[] = ['BMW', 'Ford', 'Tesla'];
   doughnutChartData: MultiDataSet = [

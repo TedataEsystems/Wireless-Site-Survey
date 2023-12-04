@@ -1,20 +1,26 @@
-
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { Title } from "@angular/platform-browser";
+import { ActivatedRoute, Router } from "@angular/router";
+import { OtpService } from "../../service/otp.service";
+import { Iotp } from "../../model/opt";
+import { NotificationMsgService } from "../../service/notification-msg.service";
 
 @Component({
-  selector: 'app-verify-otp',
-  templateUrl: './verify-otp.component.html',
-  styleUrls: ['./verify-otp.component.css']
+  selector: "app-verify-otp",
+  templateUrl: "./verify-otp.component.html",
+  styleUrls: ["./verify-otp.component.css"],
 })
 export class VerifyOTPComponent implements OnInit {
-
-  warning=false;
-  form:FormGroup=new FormGroup({
-    OTP: new FormControl('',Validators.required)
-
+  otpModel = <Iotp>{};
+  warning = false;
+  form: FormGroup = new FormGroup({
+    OTP: new FormControl("", Validators.required),
   });
 
   constructor(
@@ -22,33 +28,29 @@ export class VerifyOTPComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private titleService: Title,
-    )
-    {
-
-      this.titleService.setTitle("Verify Code");
-
-
-
-    }
-
-  ngOnInit(): void {
-
-
+    private otpService: OtpService,
+    public notificationService: NotificationMsgService
+  ) {
+    this.titleService.setTitle("Verify Code");
   }
 
+  ngOnInit(): void {}
+
   onSubmit() {
-      if (this.form.invalid) {
-        this.warning=true
-          return;
-
-      }
-
-
-
-   this.router.navigate(['/template'], { relativeTo: this.route });
-    }
-
-
-
-
+      this.otpModel.email = localStorage.getItem("email").toString();
+      this.otpModel.otp = this.form.value.OTP;
+      this.otpService
+        .OtpVerificationRequest(this.otpModel)
+        .subscribe((response) => {
+          debugger
+          console.log(response);
+          if(response.status == true){
+            this.notificationService.success(response.message);
+            this.router.navigate(["/home"], { relativeTo: this.route });
+          }else{
+            this.notificationService.warn(response.message);
+          }
+        });
+   
+  }
 }

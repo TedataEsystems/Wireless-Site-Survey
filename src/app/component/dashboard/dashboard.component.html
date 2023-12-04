@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col">
-                        <div class="font-weight-bold text-info  mb-1">Open & Closed Requested Chart / <span class="text-white"> November 2023</span></div>
+                        <div class="font-weight-bold text-info  mb-1">Open & Closed Requested Chart / <span class="text-white"> {{ currentMonthAndYear }}</span></div>
 
                 <div class="chart-wrapper mt-4">
                     <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [colors]="lineChartColors"
@@ -51,7 +51,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col">
-                        <div class="font-weight-bold text-info  mb-1">Requests Summary /<span class="text-white"> November 2023</span></div>
+                        <div class="font-weight-bold text-info  mb-1">Requests Summary /<span class="text-white"> {{ currentMonthAndYear }}</span></div>
 
                     <table width="100%"  class="tableindex">
                         <tbody>
@@ -60,7 +60,7 @@
                                     <label class="datelblindex">Requestes Created Today</label>
                                 </td>
                                 <td>
-                                    <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                                    <span id="MainContent_lbldatelast" class="lblindex">{{graphDataCount.createdRequestsToday}}</span>
                                 </td>
 
 
@@ -70,17 +70,17 @@
                                   <label class="datelblindex">Requests Created This Month</label>
                               </td>
                               <td>
-                                  <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                                  <span id="MainContent_lbldatelast" class="lblindex">{{graphDataCount.createdRequestsThisMonth}}</span>
                               </td>
 
 
                           </tr>
                           <tr>
                             <td>
-                                <label class="datelblindex">Requested Created Today</label>
+                                <label class="datelblindex">Requested Completed Today</label>
                             </td>
                             <td>
-                                <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                                <span id="MainContent_lbldatelast" class="lblindex">{{graphDataCount.completedRequestsToday}}</span>
                             </td>
 
 
@@ -90,12 +90,12 @@
                               <label class="datelblindex">Requestes Completed Today</label>
                           </td>
                           <td>
-                              <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                              <span id="MainContent_lbldatelast" class="lblindex">{{graphDataCount.completedRequestsThisMonth}}</span>
                           </td>
 
 
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td>
                             <label class="datelblindex">Requestes Completed This Month</label>
                         </td>
@@ -104,13 +104,13 @@
                         </td>
 
 
-                    </tr>
+                    </tr> -->
                     <tr>
                       <td>
                           <label class="datelblindex">Pending  Vendor (exceed 5 Day)</label>
                       </td>
                       <td>
-                          <span id="MainContent_lbldatelast" class="lblindex">0</span>
+                          <span id="MainContent_lbldatelast" class="lblindex">{{graphDataCount.violatedPendingVendorRequests}}</span>
                       </td>
 
 
@@ -132,7 +132,7 @@
               <div class="card-body">
                   <div class="row no-gutters align-items-center">
                       <div class="col">
-                          <div class="font-weight-bold text-info  mb-1">Monthly Chart /<span class="text-white"> November 2023</span></div>
+                          <div class="font-weight-bold text-info  mb-1">Monthly Chart /<span class="text-white"> {{ currentMonthAndYear }}</span></div>
                           <div class="chart-wrapper rounded mb-4">
                             <canvas baseChart class="creator"
                             [data]="doughnutChartData"
@@ -156,7 +156,7 @@
               <div class="card-body">
                   <div class="row no-gutters align-items-center">
                       <div class="col">
-                          <div class="font-weight-bold text-info  mb-1">Today Chart/<span class="text-white"> November 2023</span></div>
+                          <div class="font-weight-bold text-info  mb-1">Today Chart/<span class="text-white"> {{ currentMonthAndYear }}</span></div>
                           <canvas baseChart class="creator"
                           [data]="doughnutChartData"
                           [labels]="doughnutChartLabels"
