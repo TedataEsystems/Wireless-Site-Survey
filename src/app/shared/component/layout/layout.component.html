@@ -1,10 +1,10 @@
 <!-- <app-header (sidenavToggle)="onToolbarMenuToggle()"></app-header> -->
-<app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+<app-header (sidenavToggle)="sidenav.toggle()" (triggerHeader)="setTitle($event)"></app-header>
  <app-sub-header (sidenavToggle)="sidenav.toggle()"></app-sub-header>
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
 <mat-sidenav-container>
     <mat-sidenav   #sidenav="matSidenav"  id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen" opened>
-        <app-sidebar></app-sidebar>
+        <app-sidebar (trigger)="setTitle($event)"></app-sidebar>
 
     </mat-sidenav>
 
@@ -13,8 +13,8 @@
       <mat-toolbar class="subheader">
         <div class="search-div" fxLayout="row">
 
-            <span class="title mx-3" routerLink="/template">
-                 Template
+            <span class="title mx-3">
+                 {{Template}}
             </span>
 
 
