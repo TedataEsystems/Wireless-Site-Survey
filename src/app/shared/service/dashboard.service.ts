@@ -12,7 +12,7 @@ export class DashboardService {
     return this.HttpClient.get(`${environment.API_URL}Home/GraphDataCount`);
   }
 
-  GraphDataJson() {
+  GraphDataJson():Observable<any> {
     return this.HttpClient.get(`${environment.API_URL}Home/GraphDataJson`);
   }
 }
