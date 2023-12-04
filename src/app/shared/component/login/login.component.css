@@ -22,6 +22,9 @@ text-align: center;
 
        /* visibility: hidden; */
    }
+   .register:hover{
+    cursor: pointer;
+   }
    mat-card{
      background-color:var(--main-color) !important;
      max-width: 370px;
