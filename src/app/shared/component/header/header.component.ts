@@ -9,7 +9,10 @@ import screenfull from 'screenfull';
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
-  userName : string; 
+  @Output() public triggerHeader = new EventEmitter();
+
+
+  userName : string;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -20,7 +23,9 @@ export class HeaderComponent implements OnInit {
   public onToggleSidenav=()=> {
     this.sidenavToggle.emit();
      }
-
+     setTitle(title){
+      this.triggerHeader.emit(title)
+    }
 
      logOut(){
       localStorage.clear();

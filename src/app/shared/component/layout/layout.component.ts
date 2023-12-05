@@ -11,6 +11,7 @@ export class LayoutComponent implements OnInit {
   mobileQuery: MediaQueryList;
   isMenuOpen = true;
   contentMargin = 236;
+  Template='Home'
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private observer: BreakpointObserver) {
@@ -20,6 +21,7 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -53,5 +55,8 @@ export class LayoutComponent implements OnInit {
        }
      });
    }
+   setTitle(value){
+    this.Template=value;
 
+   }
 }

@@ -84,5 +84,14 @@ export class LoginComponent implements OnInit {
         this.notificationService.warn("Invalid UserName or Password");
       }
     });
+
+
+  }
+
+
+
+  goToRegister(){
+    this.router.navigate(["/register"], { relativeTo: this.route });
+
   }
 }

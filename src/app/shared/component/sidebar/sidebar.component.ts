@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  
+
 
   isExpanded= true;
   isExpanded1= true;
@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
   isExpanded7 = true;
   isExpanded8 = true;
   isExpanded9 = true;
-  
+
 
   showSubmenu = true;
   showSubmenu1 = false;
@@ -41,21 +41,25 @@ export class SidebarComponent implements OnInit {
   isShowing7 = false;
   isShowing8 = false;
   isShowing9 = false;
-  
+
   showSubSubMenu: boolean = false;
-  
-  constructor(private router: Router) { 
-   
-  
+  @Output() public trigger = new EventEmitter();
+  constructor(private router: Router) {
+
+
   }
 
   ngOnInit(): void {
+  }
+
+  setTitle(title){
+    this.trigger.emit(title)
   }
   logOut(){
     localStorage.clear();
     // this.accountService.logout().subscribe(res=>{
       this.router.navigateByUrl('/login');
-      
-    } 
+
+    }
 
 }
