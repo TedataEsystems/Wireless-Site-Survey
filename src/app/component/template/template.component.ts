@@ -9,7 +9,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IRequest } from 'src/app/shared/model/IReuest';
 import { DeleteService } from 'src/app/shared/service/delete.service';
+import { RequestService } from 'src/app/shared/service/request.service';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -24,7 +26,8 @@ import { DeleteService } from 'src/app/shared/service/delete.service';
 })
 export class TemplateComponent implements OnInit {
   searchKey:string ='' ;
-  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
+  requestsList: IRequest[] = [];
+  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ,private requestService : RequestService ) {
     this.titleService.setTitle("Pending Sales");
    }
 
@@ -33,9 +36,19 @@ export class TemplateComponent implements OnInit {
    displayedColumns: string[] = ['ID','CustomerName','BranchName','L.CName', 'L.CMobile','AccountManager','Status','CreatedDate', 'action'];
    dataSource = new MatTableDataSource();
   ngOnInit(): void {
+    this.getReuests();
   }
 
+getReuests(){
+  this.requestService.getRequests().subscribe(response => {
+    this.requestsList = response;
+    console.log(this.requestsList)
 
+    this.dataSource = new MatTableDataSource<any>(this.requestsList);
+    this.dataSource.paginator = this.paginator as MatPaginator;
+    this.dataSource.sort = this.sort as MatSort;
+  })
+}
   ngAfterViewInit() {
 
     this.dataSource.sort = this.sort as MatSort;

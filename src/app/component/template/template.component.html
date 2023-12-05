@@ -26,7 +26,7 @@
       <ng-container matColumnDef="ID" >
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
         <mat-cell *matCellDef="let element" >
-          <!-- {{element.id}} -->
+          {{element.id}}
         </mat-cell>
     </ng-container>
 
@@ -35,7 +35,7 @@
         <ng-container matColumnDef="CustomerName">
             <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <!-- {{element.CustomerName}} -->
+              {{element.customerName}}
             </mat-cell>
         </ng-container>
 
@@ -43,20 +43,20 @@
           <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Branch Name</mat-header-cell>
           <mat-cell *matCellDef="let element">
 
-            <!-- {{element.BranchName}} -->
+            {{element.branchName}}
           </mat-cell>
       </ng-container>
       <ng-container matColumnDef="L.CName">
         <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>L.C Name</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <!-- {{element.L.CName}} -->
+          {{element.localContactName}}
         </mat-cell>
     </ng-container>
 
         <ng-container matColumnDef="L.CMobile">
             <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> L.C Mobile</mat-header-cell>
             <mat-cell *matCellDef="let element" >
-               <!-- {{element.L.CMobile}} -->
+               {{element.localContactMobile1}}
               </mat-cell>
         </ng-container>
 
@@ -64,7 +64,7 @@
             <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Account Manager</mat-header-cell>
             <mat-cell *matCellDef="let element">
 
-              <!-- {{element.AccountManager}} -->
+              {{element.localContactEmail}}
              </mat-cell>
         </ng-container>
         <ng-container matColumnDef="Status">

@@ -1,199 +1,208 @@
 <!--  ------main----------------- -->
 <mat-card class="example-card">
-
-  <form
-  >
+  <form (ngSubmit)="onSubmit()" [formGroup]="requestForm">
     <div class="row">
       <div class="col-sm-12 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="font-weight-bold text-info  mb-3">Main Details</div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Customer Name : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Branch Name : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Branch Address : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Location : </div>
-
-
-                            </div>
-                            <div class="col">
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Customer Name">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Branch Name">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Branch Address">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-50 pr-1">
-                                  <input matInput placeholder="East">
-                                </mat-form-field>
-                                <mat-form-field class="w-50">
-                                  <input matInput placeholder="North">
-                                </mat-form-field>
-                              </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 mb-4">
-      <div class="card border-left-info shadow h-100">
           <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                      <div class="font-weight-bold text-info  mb-3">Local Contact Info.</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact Name : </div>
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact E-mail : </div>
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact Phone 1: </div>
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact Phone 2:  </div>
-
-
-                      </div>
-                      <div class="col">
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact Name">
-                          </mat-form-field>
-                        </div>
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact E-mail">
-                          </mat-form-field>
-                        </div>
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact Phone 1">
-                          </mat-form-field>
-                        </div>
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact Phone 2">
-                          </mat-form-field>
-                        </div>
-
-
-                      </div>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-sm-12 col-md-6 mb-4">
-    <div class="card border-left-info shadow h-100">
-        <div class="card-body">
             <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="font-weight-bold text-info  mb-3">Services</div>
-                    <div class="row no-gutters align-items-center">
-                      <div class="col-auto">
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Internet : </div>
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">VPN : </div>
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Wifi : </div>
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">PRI: </div>
-
-
-                    </div>
-                    <div class="col">
-                      <div>
-                        <mat-form-field class="w-50 pr-1">
-                          <input matInput placeholder="Internet">
-                        </mat-form-field>
-                        <mat-form-field class="w-50">
-                          <mat-select placeholder="Mbps">
-                            <mat-option></mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                      </div>
-                      <div>
-                        <mat-form-field class="w-50 pr-1">
-                          <input matInput placeholder="VPN Speed">
-                        </mat-form-field>
-                        <mat-form-field class="w-50">
-                          <mat-select placeholder="Mbps">
-                            <mat-option></mat-option>
-                          </mat-select>
-
-                        </mat-form-field>
-                      </div>
-                      <div>
-                        <mat-form-field class="w-50 pr-1">
-                          <input matInput placeholder="Wifi Speed">
-                        </mat-form-field>
-                        <mat-form-field class="w-50">
-                          <mat-select placeholder="Mbps">
-                            <mat-option></mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                      </div>
-                      <div>
-                        <mat-form-field class="w-100">
-                          <input matInput placeholder="PRI">
-                        </mat-form-field>
-                      </div>
-
-
-
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-sm-12 col-md-6 mb-4">
-  <div class="card border-left-info shadow h-100">
-      <div class="card-body">
-          <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                  <div class="font-weight-bold text-info  mb-3">Comments</div>
-                  <div class="row no-gutters align-items-center">
-
-                      <div class="col">
-                        <angular-editor  id="editor1"   [config]="editorConfig"></angular-editor>
-                      </div>
+                <div class="font-weight-bold text-info mb-3">Main Details</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Customer Name :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Branch Name :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Branch Address :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Location :
+                    </div>
                   </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Customer Name" formControlName="customerName" />
+                        <mat-error>This field is mandatory.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Branch Name"  formControlName="branchName"/>
+                        <mat-error>This field is mandatory.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Branch Address"  formControlName="branchAddress"/>
+                        <mat-error>This field is mandatory.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input matInput placeholder="East" formControlName="lat"  />
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <input matInput placeholder="North" formControlName="lang" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
               </div>
-
+            </div>
           </div>
-      </div>
-  </div>
-</div>
-
-
-
-
-        <div class="w-100 text-center mt-5">
-          <button
-            mat-raised-button
-            class="w-25 text-white submit"
-            type="submit"
-          >
-            Add
-          </button>
         </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">
+                  Local Contact Info.
+                </div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact Name :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact E-mail :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact Phone 1:
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact Phone 2:
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Local Contact Name" formControlName="localContactName" />
+                        <mat-error>This field is mandatory.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Local Contact E-mail" formControlName="localContactEmail"/>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Local Contact Phone 1" formControlName="localContactMobile1"/>
+                        <mat-error>This field is mandatory.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="Local Contact Phone 2" formControlName="localContactMobile2"/>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Services</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Internet :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      VPN :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Wifi :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      PRI:
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input matInput placeholder="Internet" formControlName="speedInternet"/>
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <mat-select  formControlName="speedInternetType">
+                          <mat-option value="Mbps">Mbps</mat-option>
+                          <mat-option value="Kbps">Kbps</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input matInput placeholder="VPN Speed" formControlName="speedVPN"/>
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <mat-select formControlName="speedVPNType">
+                          <mat-option value="Mbps">Mbps</mat-option>
+                          <mat-option value="Kbps">Kbps</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input matInput placeholder="Wifi Speed" formControlName="speedWifi" />
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <mat-select formControlName="speedWifiType">
+                          <mat-option value="Mbps">Mbps</mat-option>
+                          <mat-option value="Kbps">Kbps</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input matInput placeholder="PRI" formControlName="priCount"/>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Comments</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col">
+                    <angular-editor
+                     formControlName="comment"
+                      id="editor1"
+                      [config]="editorConfig"
+                    ></angular-editor>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="w-100 text-center mt-5">
+        <button mat-raised-button class="w-25 text-white submit" type="submit">
+          Add
+        </button>
+      </div>
     </div>
   </form>
 </mat-card>
