@@ -42,48 +42,48 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    // if (this.form.invalid) {
-    //   return;
-    // }
+    if (this.form.invalid) {
+      return;
+    }
 
-    // let loginModel: Login = {
-    //   userName: this.form.controls.username.value.trim(),
-    //   password: this.form.controls.password.value,
-    // };
-    // this.LoginService.Login(loginModel).subscribe((res) => {
-    //   debugger;
-    //   console.log(res);
-    //   this.user = res;
-    //   if (
-    //     this.user.token != "undefined" ||
-    //     this.user.token != null ||
-    //     this.user.status != false
-    //   ) {
-    //     localStorage.setItem("token", this.user.token);
-    //     localStorage.setItem("userName", this.user.userName);
-    //     localStorage.setItem("userGroup", this.user.userGroup);
-    //     localStorage.setItem("email", this.user.email);
-    //     this.router.navigate(["/verifyOTP"], { relativeTo: this.route });
-    //    console.log(this.user.email);
-    //     this.otpService
-    //       .SendOtpCode(this.user.email)
-    //       .subscribe((response) => {
-    //         debugger
-    //         console.log(response);
-    //       });
+    let loginModel: Login = {
+      userName: this.form.controls.username.value.trim(),
+      password: this.form.controls.password.value,
+    };
+    this.LoginService.Login(loginModel).subscribe((res) => {
+      debugger;
+      console.log(res);
+      this.user = res;
+      if (
+        this.user.token != "undefined" ||
+        this.user.token != null ||
+        this.user.status != false
+      ) {
+        localStorage.setItem("token", this.user.token);
+        localStorage.setItem("userName", this.user.userName);
+        localStorage.setItem("userGroup", this.user.userGroup);
+        localStorage.setItem("email", this.user.email);
+        this.router.navigate(["/verifyOTP"], { relativeTo: this.route });
+       console.log(this.user.email);
+        this.otpService
+          .SendOtpCode(this.user.email)
+          .subscribe((response) => {
+            debugger
+            console.log(response);
+          });
 
-    //     // this.router.navigateByUrl('home');
-    //   }
-    //   if (
-    //     this.user.token == "undefined" ||
-    //     this.user.userName == "undefined" ||
-    //     this.user.token == null
-    //   ) {
-    //     this.notificationService.warn("Invalid UserName or Password");
-    //   } else if (this.user.status == false) {
-    //     this.notificationService.warn("Invalid UserName or Password");
-    //   }
-    // });
+        // this.router.navigateByUrl('home');
+      }
+      if (
+        this.user.token == "undefined" ||
+        this.user.userName == "undefined" ||
+        this.user.token == null
+      ) {
+        this.notificationService.warn("Invalid UserName or Password");
+      } else if (this.user.status == false) {
+        this.notificationService.warn("Invalid UserName or Password");
+      }
+    });
 
 
   }
