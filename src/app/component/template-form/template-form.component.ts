@@ -25,6 +25,7 @@ export class TemplateFormComponent implements OnInit {
       translate: 'yes',
       enableToolbar: true,
       showToolbar: true,
+
       placeholder: 'Enter text here...',
       defaultParagraphSeparator: '',
       defaultFontName: '',
@@ -50,16 +51,54 @@ export class TemplateFormComponent implements OnInit {
         class: 'titleText',
         tag: 'h1',
       },
+      {
+        name: 'table',
+        class: 'table',
+        tag: 'table class="table table-bordered"><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></table>'
+      }
     ],
     uploadUrl: 'v1/image',
 
-    uploadWithCredentials: false,
+    uploadWithCredentials: true,
     sanitize: true,
     toolbarPosition: 'top',
-    toolbarHiddenButtons: [
-      ['bold', 'italic'],
-      ['fontSize']
-    ]
+    // toolbarHiddenButtons: [
+    //   ['bold', 'italic'],
+    //   ['fontSize'],
+    //   [
+    //     'undo',
+    //     'redo',
+    //     'bold',
+    //     'italic',
+    //     'underline',
+    //     'strikeThrough',
+    //     'subscript',
+    //     'superscript',
+    //     'justifyLeft',
+    //     'justifyCenter',
+    //     'justifyRight',
+    //     'justifyFull',
+    //     'indent',
+    //     'outdent',
+    //     'insertUnorderedList',
+    //     'insertOrderedList',
+    //     'heading',
+    //     'fontName'
+    //   ],
+    //   [
+    //     'fontSize',
+    //     'textColor',
+    //     'backgroundColor',
+    //     'customClasses',
+    //     'link',
+    //     'unlink',
+    //     'insertImage',
+    //     'insertVideo',
+    //     'insertHorizontalRule',
+    //     'removeFormat',
+    //     'toggleEditorMode'
+    //   ]
+    // ]
 }
   constructor(private toastr:ToastrService) {
 

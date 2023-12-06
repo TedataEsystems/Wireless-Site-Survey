@@ -34,6 +34,10 @@ import { PendingPresalesComponent } from 'src/app/component/pending-presales/pen
 import { PendingVendorComponent } from 'src/app/component/pending-vendor/pending-vendor.component';
 import { CompletedComponent } from 'src/app/component/completed/completed.component';
 import { VerifyOTPComponent } from '../../component/verify-otp/verify-otp.component';
+import { EditRequestComponent } from 'src/app/component/edit-request/edit-request.component';
+import { ViewRequestComponent } from 'src/app/component/view-request/view-request.component';
+import { RequestHistoryComponent } from 'src/app/component/request-history/request-history.component';
+import { RequestNoteComponent } from 'src/app/component/request-note/request-note.component';
 
 
 @NgModule({
@@ -54,7 +58,11 @@ import { VerifyOTPComponent } from '../../component/verify-otp/verify-otp.compon
     PendingPresalesComponent,
     PendingVendorComponent,
     CompletedComponent,
-    VerifyOTPComponent
+    VerifyOTPComponent,
+    EditRequestComponent,
+    ViewRequestComponent,
+    RequestHistoryComponent,
+    RequestNoteComponent
 
   ],
   imports: [

@@ -12,6 +12,8 @@ import { PendingPresalesComponent } from "./component/pending-presales/pending-p
 import { PendingVendorComponent } from "./component/pending-vendor/pending-vendor.component";
 import { CompletedComponent } from "./component/completed/completed.component";
 import { VerifyOTPComponent } from "./shared/component/verify-otp/verify-otp.component";
+import { EditRequestComponent } from "./component/edit-request/edit-request.component";
+import { ViewRequestComponent } from "./component/view-request/view-request.component";
 
 const routes: Routes = [
   {
@@ -59,6 +61,14 @@ const routes: Routes = [
       {
         path: 'newRequest',
         component: TemplateFormComponent,
+      },
+      {
+        path: 'editRequest',
+        component: EditRequestComponent,
+      },
+      {
+        path: 'viewRequest',
+        component: ViewRequestComponent,
       },
       {
         path: 'sendMail',

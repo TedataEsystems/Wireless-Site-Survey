@@ -1,0 +1,64 @@
+<mat-toolbar class="top" >
+  <span class="fill-remaining-space"> Request History</span>
+  <div class="w-100 text-right">
+    <button
+      class="btn-dialog-close"
+      mat-button
+      tabIndex="-1"
+      (click)="onClose()"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div class="content">
+  <mat-table [dataSource]="dataSource1"  multiTemplateDataRows   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
+
+    <ng-container matColumnDef="HistoryMessage" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> History Message</mat-header-cell>
+      <mat-cell *matCellDef="let element" >
+        <!-- {{element.id}} -->
+      </mat-cell>
+  </ng-container>
+
+
+
+      <ng-container matColumnDef="Date">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Date</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!-- {{element.CustomerName}} -->
+          </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="ByUser">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>ByUser </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+          <!-- {{element.BranchName}} -->
+        </mat-cell>
+    </ng-container>
+
+
+
+
+
+
+      <ng-container matColumnDef="noData">
+          <mat-footer-cell *matFooterCellDef colspan="7">
+            No data ...
+          </mat-footer-cell>
+
+      </ng-container>
+
+
+
+      <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource1.data.length==0 && dataSource1 !=null)}"></mat-footer-row>
+      <mat-header-row *matHeaderRowDef="displayedColumns1;sticky: true" sticky></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns1;"></mat-row>
+
+
+  </mat-table>
+</div>
+<!-- <ngx-spinner type="timer">
+  <h5>Loading</h5>
+</ngx-spinner> -->

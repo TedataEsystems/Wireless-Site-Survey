@@ -291,15 +291,20 @@ snack-bar-container.success {
         }
 
 
-       .cdk-global-overlay-wrapper .cdk-overlay-pane.modals-dialog{
-            position: absolute !important;
-            border-radius: 0!important;
-            right: 0;
-            top:0;
-            bottom:0;
 
-            /* background:#e8e8c7 !important; */
-        }
+        .cdk-global-overlay-wrapper .cdk-overlay-pane.modals-dialog {
+          position: absolute !important;
+          top: 50px;
+          height: 500px;
+          overflow-y: auto;
+          max-width: 50%;
+      }
+      .mat-dialog-container {
+        box-shadow: none !important;
+        padding: 0 !important;
+        background: #fff !important;
+        color: var(--main-color);
+      }
         .cdk-global-overlay-wrapper .cdk-overlay-pane.Right-dialog{
           position: absolute !important;
           border-radius: 0!important;

@@ -1,0 +1,99 @@
+.submit{
+  color:#fff;
+  width: 100px;
+}
+/* mat-radio-button{
+  margin:0 5px;
+  vertical-align: sub;
+}
+#radio-group-label{
+  margin: 5px 5px 5px 0;
+} */
+.req {
+  position: absolute;
+ bottom: -18px;
+ right: 0;
+ color: #f44336;
+ font-size: 75%;
+}
+
+.browse{
+  height: 35px;
+
+    border: 0;
+    background: var(--forth-color);
+    border-radius: 2px;
+    z-index: 1;
+
+    color: #fff;
+}
+
+.clr{
+  background-color: var(--fifth-color);
+  color:#fff;
+}
+mat-toolbar.top{
+  background-color: var(--fifth-color);
+  color:#fff;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+mat-toolbar.bottom{
+  background-color: #c6cacd;
+  color:#fff;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+
+}
+mat-form-field{
+  margin-top: 25px !important;
+}
+/* mat-checkbox{
+direction: rtl;
+  text-align: right;
+  margin-top: 15px;
+
+} */
+ /* test */
+
+ .file-upload-btn {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  height: 35px;
+  color:#fff;
+  background: var(--fifth-color);
+
+}
+.help-block {
+  display: block;
+  margin-top: -4px;
+  margin-bottom: 10px;
+  color: crimson;
+}
+.file-upload-input {
+    bottom: 0;
+    cursor: inherit;
+    font-size: 1000px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+.form-control{
+  height: 35px;
+  box-shadow: inset 2px 2px 6px var(--third-color), inset -2px -2px 6px var(--third-color);
+  border: 0;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+  height: 50px;
+}
+.content{
+  padding-top:50px;
+}
