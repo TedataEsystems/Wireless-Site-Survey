@@ -17,4 +17,16 @@ export class RequestService {
   {
    return this.HttpClient.post<any>(`${environment.API_URL}Requests/AddReuest`,data);  
   }
+  getRequestsPendingVendor(): Observable<any>{
+    return this.HttpClient.get<any>(`${environment.API_URL}Requests/PendingVendor`);
+  }
+  getRequestsPendingPresales(): Observable<any>{
+    return this.HttpClient.get<any>(`${environment.API_URL}Requests/PendingPresales`);
+  }
+  getRequestsPendingSales(): Observable<any>{
+    return this.HttpClient.get<any>(`${environment.API_URL}Requests/PendingSales`);
+  }
+  getRequestsCompleted(): Observable<any>{
+    return this.HttpClient.get<any>(`${environment.API_URL}Requests/Completed`);
+  }
 }

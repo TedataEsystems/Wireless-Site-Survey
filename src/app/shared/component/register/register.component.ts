@@ -68,7 +68,8 @@ export class RegisterComponent implements OnInit {
     };
   }
   onSubmit() {
-    if (this.form.invalid) {
+    debugger
+    if (!this.form.invalid) {
       this.registerModel.userName = this.form.value.username;
       this.registerModel.email = this.form.value.Email;
       this.registerModel.password = this.form.value.password;

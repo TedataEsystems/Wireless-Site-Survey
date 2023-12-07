@@ -63,7 +63,7 @@ const routes: Routes = [
         component: TemplateFormComponent,
       },
       {
-        path: 'editRequest',
+        path: 'template/editRequest/:id',
         component: EditRequestComponent,
       },
       {
