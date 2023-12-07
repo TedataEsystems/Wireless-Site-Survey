@@ -1,0 +1,77 @@
+<mat-toolbar class="top" >
+  <span class="fill-remaining-space">Attachment</span>
+  <div class="w-100 text-right">
+    <button
+      class="btn-dialog-close"
+      mat-button
+      tabIndex="-1"
+      (click)="onClose()"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div class="content">
+  <form
+  [formGroup]="form"
+  class="normal-form mx-0"
+  (submit)="onSubmit()"
+
+>
+<mat-grid-list cols="1" rowHeight="200">
+  <mat-grid-tile colspan="1">
+    <div class="controles-container">
+
+
+
+      <mat-form-field class="w-100 mb-5">
+        <mat-label>File Name</mat-label>
+        <input formControlName="filename" matInput  />
+
+      </mat-form-field>
+      <mat-label>Select File</mat-label>
+      <div class="input-group mt-1 w-100 d-flex mb-2 "  >
+
+
+        <input
+          class="form-control rounded-0"
+          placeholder="Choose File..."
+          [(ngModel)]="fileAttr"
+          formControlName="file"
+          type="text"
+          id="browse"
+        />
+        <label class="btn browse">
+
+          Browse
+          <input
+          class="file-upload-input"
+          #fileInput
+          name="file"
+          type="file"
+          for="browse"
+          (change)="uploadFileEvt($event)"
+        />
+        </label>
+      </div>
+
+
+    </div>
+  </mat-grid-tile>
+
+
+
+
+</mat-grid-list>
+<mat-toolbar class="bottom">
+  <div class="button-row w-100 text-center">
+    <button mat-raised-button class="submit w-50" type="submit">
+      Survey Done
+    </button>
+  </div>
+</mat-toolbar>
+</form>
+</div>
+<!-- <ngx-spinner type="timer">
+  <h5>Loading</h5>
+</ngx-spinner> -->

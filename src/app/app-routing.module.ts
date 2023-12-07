@@ -14,6 +14,9 @@ import { CompletedComponent } from "./component/completed/completed.component";
 import { VerifyOTPComponent } from "./shared/component/verify-otp/verify-otp.component";
 import { EditRequestComponent } from "./component/edit-request/edit-request.component";
 import { ViewRequestComponent } from "./component/view-request/view-request.component";
+import { ReportComponent } from "./component/report/report.component";
+import { UsersAddComponent } from "./component/users-add/users-add.component";
+import { UsersViewComponent } from "./component/users-view/users-view.component";
 
 const routes: Routes = [
   {
@@ -57,7 +60,19 @@ const routes: Routes = [
         path: 'completed',
         component: CompletedComponent,
       },
-
+      {
+        path: 'Report',
+        component: ReportComponent,
+      },
+      {
+        path: 'userAdd',
+        component: UsersAddComponent,
+      },
+      {
+        path: 'userView',
+        component: UsersViewComponent,
+      },
+      
       {
         path: 'newRequest',
         component: TemplateFormComponent,

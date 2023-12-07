@@ -51,6 +51,8 @@ export class LoginComponent implements OnInit {
       password: this.form.controls.password.value,
     };
     this.LoginService.Login(loginModel).subscribe((res) => {
+      debugger;
+      console.log(res);
       this.user = res;
       if (
         this.user.token != "undefined" ||
@@ -62,13 +64,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userGroup", this.user.userGroup);
         localStorage.setItem("email", this.user.email);
         this.router.navigate(["/verifyOTP"], { relativeTo: this.route });
+       console.log(this.user.email);
         this.otpService
           .SendOtpCode(this.user.email)
           .subscribe((response) => {
+            debugger
             console.log(response);
           });
 
-         //this.router.navigateByUrl('home');
+        // this.router.navigateByUrl('home');
       }
       if (
         this.user.token == "undefined" ||

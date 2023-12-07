@@ -1,0 +1,31 @@
+.student-element-detail{
+  width: 100%;
+  }
+  .student-detail-row {
+  min-height: 0;
+
+  }
+  .student-detail-row mat-cell
+  {
+  background: #ffffff;
+    box-shadow: inset 3px 0px 5px var(--third-color),inset -3px 0px 5px var(--third-color);
+
+
+  }
+  .text-info {
+    color: var(--main-color)!important;
+    font-size: 16px;
+    background: var(--third-color);
+    padding: 10px 5px;
+    border-radius: 3px;
+}
+.border-left-info {
+  border-left: .25rem solid  #576673!important;
+}
+mat-card{
+  padding-top: 8px !important;
+}
+
+    .controles-container {
+      width: 100%;
+      padding: 1%;}

@@ -38,6 +38,10 @@ import { EditRequestComponent } from 'src/app/component/edit-request/edit-reques
 import { ViewRequestComponent } from 'src/app/component/view-request/view-request.component';
 import { RequestHistoryComponent } from 'src/app/component/request-history/request-history.component';
 import { RequestNoteComponent } from 'src/app/component/request-note/request-note.component';
+import { ReportComponent } from '../../../component/report/report.component';
+import { UsersAddComponent } from '../../../component/users-add/users-add.component';
+import { UsersViewComponent } from '../../../component/users-view/users-view.component';
+import { RequestAttachComponent } from '../../../component/request-attach/request-attach.component';
 
 
 @NgModule({
@@ -62,7 +66,11 @@ import { RequestNoteComponent } from 'src/app/component/request-note/request-not
     EditRequestComponent,
     ViewRequestComponent,
     RequestHistoryComponent,
-    RequestNoteComponent
+    RequestNoteComponent,
+    ReportComponent,
+    UsersAddComponent,
+    UsersViewComponent,
+    RequestAttachComponent
 
   ],
   imports: [

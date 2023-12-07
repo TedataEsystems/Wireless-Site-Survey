@@ -17,6 +17,7 @@ import { ToastrService } from "ngx-toastr";
 import { IRequestVm } from "src/app/shared/model/IRequestVm";
 import { DeleteService } from "src/app/shared/service/delete.service";
 import { RequestService } from "src/app/shared/service/request.service";
+import { RequestAttachComponent } from "../request-attach/request-attach.component";
 
 @Component({
   selector: "app-pending-presales",
@@ -104,5 +105,19 @@ export class PendingPresalesComponent implements OnInit {
           // );
         }
       });
+  }
+
+  addAttach(id: any) {
+    const dialogGonfig = new MatDialogConfig();
+    dialogGonfig.data = { id: id };
+    dialogGonfig.disableClose = true;
+    dialogGonfig.autoFocus = true;
+    dialogGonfig.width = "50%";
+    dialogGonfig.height = "400px";
+    dialogGonfig.panelClass = "modals-dialog";
+    this.dialog
+      .open(RequestAttachComponent, dialogGonfig)
+      .afterClosed()
+      .subscribe((result) => {});
   }
 }
