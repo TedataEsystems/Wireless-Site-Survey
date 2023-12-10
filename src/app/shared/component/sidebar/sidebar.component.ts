@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+  userRole: any;
 
   isExpanded= true;
   isExpanded1= true;
@@ -50,6 +50,7 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userRole = localStorage.getItem('userGroup').toString();
   }
 
   setTitle(title){
