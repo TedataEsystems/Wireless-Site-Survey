@@ -37,6 +37,7 @@ export interface IRequestVm {
     createdBy: any
     updatedDate: any
     updatedBy: any
+    typeId : any
   }
   
   export interface IVendor {

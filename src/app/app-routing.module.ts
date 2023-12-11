@@ -20,77 +20,89 @@ import { UsersViewComponent } from "./component/users-view/users-view.component"
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: LoginComponent,
   },
   {
-    path: 'register',
+    path: "register",
     component: RegisterComponent,
   },
   {
-    path: 'verifyOTP',
+    path: "verifyOTP",
     component: VerifyOTPComponent,
   },
   {
-    path: 'home',
+    path: "home",
     component: LayoutComponent,
 
     children: [
       {
-        path: '',
+        path: "",
         component: DashboardComponent,
       },
 
       {
-        path: 'template',
+        path: "template",
         component: TemplateComponent,
       },
 
       {
-        path: 'pendingPresales',
+        path: "pendingPresales",
         component: PendingPresalesComponent,
       },
 
       {
-        path: 'pendingVendor',
+        path: "pendingVendor",
         component: PendingVendorComponent,
       },
 
       {
-        path: 'completed',
+        path: "completed",
         component: CompletedComponent,
       },
       {
-        path: 'Report',
+        path: "Report",
         component: ReportComponent,
       },
       {
-        path: 'userAdd',
+        path: "userAdd",
         component: UsersAddComponent,
       },
       {
-        path: 'userView',
+        path: "userView",
         component: UsersViewComponent,
       },
-      
+
       {
-        path: 'newRequest',
+        path: "newRequest",
         component: TemplateFormComponent,
       },
       {
-        path: 'template/editRequest/:id',
+        path: "pendingVendor/editRequest/:id",
         component: EditRequestComponent,
       },
       {
-        path: 'viewRequest',
+        path: "template/editRequest/:id",
+        component: EditRequestComponent,
+      },
+      {
+        path: "completed/editRequest/:id",
+        component: EditRequestComponent,
+      },
+      {
+        path: "pendingPresales/editRequest/:id",
+        component: EditRequestComponent,
+      },
+      {
+        path: "viewRequest",
         component: ViewRequestComponent,
       },
       {
-        path: 'sendMail',
+        path: "sendMail",
         component: SendMailComponent,
       },
       {
-        path: 'changePassword',
+        path: "changePassword",
         component: ChangePasswordComponent,
       },
     ],

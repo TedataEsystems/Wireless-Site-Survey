@@ -81,7 +81,7 @@
             <mat-cell *matCellDef="let row">
 
 
-                <button mat-button   class="btn-success "  matTooltip="Edit">
+                <button mat-button  [routerLink]="['./editRequest', row.id]"  class="btn-success "  matTooltip="Edit">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-button   class="btn-warning text-white mx-1"  matTooltip="Details">
