@@ -1,110 +1,100 @@
 <!--  ------main----------------- -->
 <mat-card class="example-card">
 
-  <form
-  >
+  <form  [formGroup]="form"
+  (submit)="onSubmit()">
     <div class="row">
       <div class="col-sm-12 col-md-12 mb-4">
         <div class="card border-left-info shadow h-100">
-            <div class="card-body">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info  mb-3">Report Field</div>
                 <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="font-weight-bold text-info  mb-3">Report Field</div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Get Address by : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Date From : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Account Manager : </div>
-
-
-
-                            </div>
-                            <div class="col pr-5">
-                              <div>
-                                <mat-form-field class="w-100">
-
-                                  <mat-select  matInput placeholder="Get Address by">
-                                    <mat-option></mat-option>
-                                  </mat-select>
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Date From">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <mat-select  matInput placeholder="Account Manager">
-                                    <mat-option></mat-option>
-                                  </mat-select>
-                                </mat-form-field>
-                              </div>
-
-
-
-                            </div>
-
-
-
-                              <div class="col-auto">
-                                  <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Status : </div>
-                                  <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Date To: </div>
-                                  <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Vendor : </div>
-
-
-
-                              </div>
-                              <div class="col">
-                                <div>
-                                  <mat-form-field class="w-100">
-
-                                    <mat-select  matInput placeholder="Status">
-                                      <mat-option></mat-option>
-                                    </mat-select>
-                                  </mat-form-field>
-                                </div>
-                                <div>
-                                  <mat-form-field class="w-100">
-                                    <input matInput placeholder="Date To">
-                                  </mat-form-field>
-                                </div>
-                                <div>
-                                  <mat-form-field class="w-100">
-                                    <mat-select  matInput placeholder="Vendor">
-                                      <mat-option></mat-option>
-                                    </mat-select>
-                                  </mat-form-field>
-                                </div>
-
-
-
-                              </div>
-
-                        </div>
-
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Get Request by : </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Date From : </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Account Manager : </div>
+                  </div>
+                  <div class="col pr-5">
+                    <div>
+                      <mat-form-field class="w-100">
+                        <mat-select formControlName="requestBy" matInput placeholder="Get Request by">
+                          <mat-option [value]="1">Created Date</mat-option>
+                          <mat-option [value]="2">Completed Date</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input type="date" formControlName="dateFrom" matInput placeholder="Date From">
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <mat-select formControlName="userId" matInput placeholder="Account Manager">
+                          <mat-option *ngFor="let user of usersList" [value]="user.id">
+                            {{user.email}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
                     </div>
 
+
+
+                  </div>
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Status : </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Date To: </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Vendor : </div>
+                  </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-100">
+
+                        <mat-select formControlName="statuesId" matInput placeholder="Status">
+                          <mat-option *ngFor="let Status of statusesList" [value]="Status.id">
+                            {{Status.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input type="date"  formControlName="dateTo" matInput placeholder="Date To">
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <mat-select formControlName="vendorId" matInput placeholder="Vendor">
+                          <mat-option *ngFor="let vendor of vendoresList" [value]="vendor.id">
+                            {{vendor.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+
+
+
+                  </div>
+
                 </div>
-                <div class="w-100 text-center mt-5">
-                  <button
-                    mat-raised-button
-                    class="w-25 text-white submit"
-                    type="submit"
-                  >
-                    Submit
-                  </button>
-                </div>
+
+              </div>
+
             </div>
+            <div class="w-100 text-center mt-5">
+              <button mat-raised-button class="w-25 text-white submit" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
 
-    </div>
+      </div>
 
 
 
     </div>
   </form>
 </mat-card>
-
-
-
