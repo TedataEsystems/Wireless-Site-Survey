@@ -10,6 +10,7 @@ import { IRequestVm } from "src/app/shared/model/IRequestVm";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatSort } from "@angular/material/sort";
 import { MatPaginator } from "@angular/material/paginator";
+import { Toast } from "ngx-toastr";
 
 @Component({
   selector: "app-edit-request",
@@ -17,11 +18,11 @@ import { MatPaginator } from "@angular/material/paginator";
   styleUrls: ["./edit-request.component.css"],
 })
 export class EditRequestComponent implements OnInit {
-  useGroup : string;
-  @ViewChild(MatSort) sort?:MatSort ;
-  @ViewChild(MatPaginator) paginator?:MatPaginator ;
+  useGroup: string;
+  @ViewChild(MatSort) sort?: MatSort;
+  @ViewChild(MatPaginator) paginator?: MatPaginator;
   id: number;
-  requesModel: IRequestVm= <IRequestVm>{};
+  requesModel: IRequestVm = <IRequestVm>{};
   displayedColumns: string[] = [
     "Attachment",
     "CreatedBy",
@@ -72,14 +73,17 @@ export class EditRequestComponent implements OnInit {
 
   getRequestById() {
     this.requestService.getRequestById(this.id).subscribe((response) => {
-
       this.requesModel = response.data;
 
-      this.dataSourceNotes = new MatTableDataSource<any>(this.requesModel.notes);
+      this.dataSourceNotes = new MatTableDataSource<any>(
+        this.requesModel.notes
+      );
       this.dataSourceNotes.paginator = this.paginator as MatPaginator;
       this.dataSourceNotes.sort = this.sort as MatSort;
-      
-      this.dataSourceAttachments = new MatTableDataSource<any>(this.requesModel.attachmentList);
+
+      this.dataSourceAttachments = new MatTableDataSource<any>(
+        this.requesModel.attachmentList
+      );
       this.dataSourceAttachments.paginator = this.paginator as MatPaginator;
       this.dataSourceAttachments.sort = this.sort as MatSort;
 
@@ -99,7 +103,7 @@ export class EditRequestComponent implements OnInit {
       localContactMobile1: this.requesModel.localContactMobile1,
       localContactMobile2: this.requesModel.localContactMobile2,
       speedInternet: this.requesModel.speedInternet,
-      speedInternetType:this.requesModel.speedInternetType,
+      speedInternetType: this.requesModel.speedInternetType,
       speedVPN: this.requesModel.speedVpn,
       speedVPNType: this.requesModel.speedVpnType,
       speedWifi: this.requesModel.speedWifi,
@@ -107,9 +111,9 @@ export class EditRequestComponent implements OnInit {
       priCount: this.requesModel.priCount,
     });
   }
-  getHistory(id: any) {
+  getHistory() {
     const dialogGonfig = new MatDialogConfig();
-    dialogGonfig.data = { id: id };
+    dialogGonfig.data = { id: this.id };
     dialogGonfig.disableClose = true;
     dialogGonfig.autoFocus = true;
     dialogGonfig.width = "50%";
@@ -122,7 +126,7 @@ export class EditRequestComponent implements OnInit {
 
   addNotes(requesModel: any) {
     const dialogGonfig = new MatDialogConfig();
-    dialogGonfig.data = { data : requesModel };
+    dialogGonfig.data = { data: requesModel };
     dialogGonfig.disableClose = true;
     dialogGonfig.autoFocus = true;
     dialogGonfig.width = "50%";
@@ -133,5 +137,21 @@ export class EditRequestComponent implements OnInit {
       .subscribe((result) => {
         this.getRequestById();
       });
+  }
+  DeleteAttach(id: any) {
+    this.requestService.DeleteAttachFile(Number(id)).subscribe((response) => {
+      console.log(response);
+    });
+  }
+  DownloadAttach(id:any){
+    this.requestService.DownloadAttach(Number(id)).subscribe(response=>{
+      const linkSource =
+      'data:' + response.type + ';base64,' + response.data;
+    const downloadLink = document.createElement('a');
+    const fileName = response.name;
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
+    })
   }
 }

@@ -42,4 +42,13 @@ export class RequestService {
     formData.append('file', file, file.name);
     return this.HttpClient.post<any>(`${environment.API_URL}Requests/UploadedFile/`+ requestId + `/` + toId+'/'+fileName, formData);
   }
+  DownloadAttach(id: number): Observable<any> {
+    return this.HttpClient.get(`${environment.API_URL}Requests/DownloadFile/`+ id);
+  }
+  DeleteAttachFile(id: number): Observable<any> {
+    return this.HttpClient.delete<any>(`${environment.API_URL}Requests/DeleteFile/` + id);
+  }
+  getRequestHistory(id: number): Observable<any> {
+    return this.HttpClient.post<any>(`${environment.API_URL}Requests/RequestHistory`, id);
+  }
 }

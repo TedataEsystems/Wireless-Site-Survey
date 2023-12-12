@@ -297,7 +297,7 @@
                             mat-button
                             class="text-success font-weight-bolder"
                             matTooltip="download"
-                          >
+                            (click)="DownloadAttach(element.id)">
                             <mat-icon>download</mat-icon>
                           </button>
                         </mat-cell>
@@ -312,7 +312,8 @@
                           Delete</mat-header-cell
                         >
                         <mat-cell *matCellDef="let element">
-                          <button mat-button color="warn" matTooltip="Delete">
+                          <button mat-button color="warn" matTooltip="Delete"
+                          (click)="DeleteAttach(element.id)">
                             <mat-icon>delete_forever</mat-icon>
                           </button>
                         </mat-cell>
@@ -461,7 +462,7 @@
   </form>
 </mat-card>
 
-<div class="boxHistory" (click)="getHistory(1)">
+<div class="boxHistory" (click)="getHistory()">
   <span>
     <mat-icon class="mx-1">history</mat-icon
     ><span class="text-white">History</span>
