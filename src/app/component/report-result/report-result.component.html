@@ -1,0 +1,118 @@
+
+
+<!--  ------main----------------- -->
+<mat-card class="example-card border-left-info ">
+
+  <div class="font-weight-bold text-info  mb-1">Show Pending Presales Requests</div>
+
+  <div class="search-div mt-3" fxLayout="row">
+      <mat-form-field class="search-form-field" floatLabel="never">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+              <mat-icon>close</mat-icon>
+          </button>
+      </mat-form-field>
+      <button mat-button class="new" >
+          <mat-icon class="mr-1">print</mat-icon>Print
+      </button>
+  </div>
+
+
+
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table [dataSource]="dataSource"   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
+
+      <ng-container matColumnDef="ID" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          <!-- {{element.id}} -->
+        </mat-cell>
+    </ng-container>
+
+
+
+        <ng-container matColumnDef="CustomerName">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <!-- {{element.CustomerName}} -->
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="BranchName">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Branch Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+
+            <!-- {{element.BranchName}} -->
+          </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="L.CName">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>L.C Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.L.CName}} -->
+        </mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="L.CMobile">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> L.C Mobile</mat-header-cell>
+            <mat-cell *matCellDef="let element" >
+               <!-- {{element.L.CMobile}} -->
+              </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="AccountManager">
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Account Manager</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+
+              <!-- {{element.AccountManager}} -->
+             </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Status">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Status</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <!-- {{element.Status}} -->
+            </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="CreatedDate">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Created Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.CreatedDate | date:'short'}} -->
+          </mat-cell>
+    </ng-container>
+      <ng-container matColumnDef="CompletedDate">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Completed Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <!-- {{element.CompletedDate | date:'short'}} -->
+          </mat-cell>
+    </ng-container>
+
+
+
+
+
+        <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="7">
+              No data ...
+            </mat-footer-cell>
+
+        </ng-container>
+
+
+
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource.data.length==0 && dataSource !=null)}"></mat-footer-row>
+        <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true" sticky></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+    </mat-table>
+    <!-- end test -->
+    </div>
+    <!--
+    </ng-template> -->
+
+    <mat-paginator [pageSizeOptions]="[10,25, 50, 100]"   [pageSize]="10"   showFirstLastButtons></mat-paginator>
+
+  </mat-card>
+  <ngx-spinner type="timer">
+    <h5>Loading</h5>
+  </ngx-spinner>

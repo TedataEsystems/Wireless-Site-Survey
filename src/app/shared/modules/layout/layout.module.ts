@@ -42,6 +42,7 @@ import { ReportComponent } from '../../../component/report/report.component';
 import { UsersAddComponent } from '../../../component/users-add/users-add.component';
 import { UsersViewComponent } from '../../../component/users-view/users-view.component';
 import { RequestAttachComponent } from '../../../component/request-attach/request-attach.component';
+import { ReportResultComponent } from '../../../component/report-result/report-result.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { RequestAttachComponent } from '../../../component/request-attach/reques
     ReportComponent,
     UsersAddComponent,
     UsersViewComponent,
-    RequestAttachComponent
+    RequestAttachComponent,
+    ReportResultComponent
 
   ],
   imports: [
