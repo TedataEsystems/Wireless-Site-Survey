@@ -4,6 +4,7 @@ import { vendor } from 'src/app/shared/model/Vendor';
 import { statues } from 'src/app/shared/model/Status';
 import { ReportService } from 'src/app/shared/service/report.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-report',
@@ -22,7 +23,7 @@ export class ReportComponent implements OnInit {
     dateTo:new FormControl(''),
     vendorId:new FormControl(0),
   })
-  constructor(public reportService:ReportService) { }
+  constructor(public reportService:ReportService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -32,10 +33,7 @@ export class ReportComponent implements OnInit {
         this.vendoresList=res.vendoresList;
         this.usersList=res.usersList;
         this.statusesList=res.statusesList;
-      } else {
-
-
-      }
+      } 
     }); //end of subscribe
   }
   onSubmit() {
@@ -43,18 +41,26 @@ export class ReportComponent implements OnInit {
       return;
     }
     let report={
-      requestBy:this.form.value.requestBy,
-      DataFrom:this.form.value.dateFrom,
-      userId:this.form.value.userId,
-      statusId:this.form.value.statuesId,
+      
+      dateFrom:this.form.value.dateFrom,
       dateTo:this.form.value.dateTo,
-      vendorId:this.form.value.vendorId
+      userId:this.form.value.userId,
+      vendorId:this.form.value.vendorId,
+      statusId:this.form.value.statuesId,
+      reportTypeId:this.form.value.requestBy
     }
+    console.log("before")
+    this.reportService.getReportResults(report).subscribe((res)=>{
+      if(res.status=true)
+      {
+        this.router.navigate(['/home/reportResult'],{ state: { data: res.data } })
+      }
+      console.log(res.data,"result of search")
+    })
     console.log(report,":Reporting values")
   }
 
-// if response true
-  // this.router.navigate(['/home/reportResult'])
+
 
 
 }
