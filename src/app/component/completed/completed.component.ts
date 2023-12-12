@@ -8,7 +8,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IRequestVm } from 'src/app/shared/model/IRequestVm';
 import { DeleteService } from 'src/app/shared/service/delete.service';
+import { RequestService } from 'src/app/shared/service/request.service';
 
 
 @Component({
@@ -17,9 +19,9 @@ import { DeleteService } from 'src/app/shared/service/delete.service';
   styleUrls: ['./completed.component.css']
 })
 export class CompletedComponent implements OnInit {
-
+  completedReuests: IRequestVm[] = [];
   searchKey:string ='' ;
-  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
+  constructor(private requestService : RequestService , private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
     this.titleService.setTitle("Completed");
    }
 
@@ -28,9 +30,19 @@ export class CompletedComponent implements OnInit {
    displayedColumns: string[] = ['ID','CustomerName','BranchName','AccountManager','Status','CreatedDate','DateFinished', 'action'];
    dataSource = new MatTableDataSource();
   ngOnInit(): void {
+    this.getRequestsCompleted();
   }
 
-
+  getRequestsCompleted() {
+    this.requestService.getRequestsCompleted().subscribe((response) => {
+      this.completedReuests = response.data;
+      this.dataSource = new MatTableDataSource<any>(
+        this.completedReuests
+      );
+      this.dataSource.paginator = this.paginator as MatPaginator;
+      this.dataSource.sort = this.sort as MatSort;
+    });
+  }
   ngAfterViewInit() {
 
     this.dataSource.sort = this.sort as MatSort;

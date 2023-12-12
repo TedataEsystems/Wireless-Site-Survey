@@ -9,6 +9,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
 // export interface items{
 //   label:string,
@@ -45,7 +46,7 @@ export class TemplateFormComponent implements OnInit {
     speedWifiType: new FormControl(""),
     priCount: new FormControl(""),
   });
-  constructor(private toastr:ToastrService, private requestService:RequestService) {
+  constructor(private route: ActivatedRoute,private router: Router,private toastr:ToastrService, private requestService:RequestService) {
 
 
 }
@@ -53,6 +54,7 @@ export class TemplateFormComponent implements OnInit {
   onSubmit() {
     debugger;
     if (this.requestForm.valid) {
+      this.requestModel.id=this.requestForm.value.id;
       this.requestModel.customerName = this.requestForm.value.customerName;
       this.requestModel.branchAddress = this.requestForm.value.branchAddress;
       this.requestModel.branchName = this.requestForm.value.branchName;
@@ -73,6 +75,8 @@ export class TemplateFormComponent implements OnInit {
       console.log(this.requestModel);
       this.requestService.AddReuest(this.requestModel).subscribe((response) => {
         console.log(response);
+        this.toastr.success("Add Successfully");
+        this.router.navigate(["/home"], { relativeTo: this.route });
       });
     }
   }

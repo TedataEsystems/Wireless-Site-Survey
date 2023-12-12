@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IRequestVm } from 'src/app/shared/model/IRequestVm';
 import { IRequest } from 'src/app/shared/model/IReuest';
 import { DeleteService } from 'src/app/shared/service/delete.service';
 import { RequestService } from 'src/app/shared/service/request.service';
@@ -26,7 +27,7 @@ import { RequestService } from 'src/app/shared/service/request.service';
 })
 export class TemplateComponent implements OnInit {
   searchKey:string ='' ;
-  requestsList: IRequest[] = [];
+  pendingSalesReuests: IRequestVm[] = [];
   constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ,private requestService : RequestService ) {
     this.titleService.setTitle("Pending Sales");
    }
@@ -36,15 +37,13 @@ export class TemplateComponent implements OnInit {
    displayedColumns: string[] = ['ID','CustomerName','BranchName','L.CName', 'L.CMobile','AccountManager','Status','CreatedDate', 'action'];
    dataSource = new MatTableDataSource();
   ngOnInit(): void {
-    this.getReuests();
+    this.getRequestsPendingSales();
   }
 
-getReuests(){
-  this.requestService.getRequests().subscribe(response => {
-    this.requestsList = response;
-    console.log(this.requestsList)
-
-    this.dataSource = new MatTableDataSource<any>(this.requestsList);
+  getRequestsPendingSales(){
+  this.requestService.getRequestsPendingSales().subscribe(response => {
+    this.pendingSalesReuests = response.data;
+    this.dataSource = new MatTableDataSource<any>(this.pendingSalesReuests);
     this.dataSource.paginator = this.paginator as MatPaginator;
     this.dataSource.sort = this.sort as MatSort;
   })

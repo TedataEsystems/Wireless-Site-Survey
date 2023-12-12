@@ -1,370 +1,476 @@
 <!--  ------main----------------- -->
 <mat-card class="example-card">
-
-  <form
-  >
+  <form [formGroup]="requestForm">
     <div class="row">
       <div class="col-sm-12 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="font-weight-bold text-info  mb-3">Main Details</div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Customer Name : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Branch Name : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Branch Address : </div>
-                                <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Location : </div>
-
-
-                            </div>
-                            <div class="col">
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Customer Name">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Branch Name">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-100">
-                                  <input matInput placeholder="Branch Address">
-                                </mat-form-field>
-                              </div>
-                              <div>
-                                <mat-form-field class="w-50 pr-1">
-                                  <input matInput placeholder="East">
-                                </mat-form-field>
-                                <mat-form-field class="w-50">
-                                  <input matInput placeholder="North">
-                                </mat-form-field>
-                              </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 mb-4">
-      <div class="card border-left-info shadow h-100">
           <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                      <div class="font-weight-bold text-info  mb-3">Local Contact Info.</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact Name : </div>
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact E-mail : </div>
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact Phone 1: </div>
-                          <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Local Contact Phone 2:  </div>
-
-
-                      </div>
-                      <div class="col">
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact Name">
-                          </mat-form-field>
-                        </div>
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact E-mail">
-                          </mat-form-field>
-                        </div>
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact Phone 1">
-                          </mat-form-field>
-                        </div>
-                        <div>
-                          <mat-form-field class="w-100">
-                            <input matInput placeholder="Local Contact Phone 2">
-                          </mat-form-field>
-                        </div>
-
-
-                      </div>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-sm-12 col-md-6 mb-4">
-    <div class="card border-left-info shadow h-100">
-        <div class="card-body">
             <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="font-weight-bold text-info  mb-3">Services</div>
-                    <div class="row no-gutters align-items-center">
-                      <div class="col-auto">
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Internet : </div>
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">VPN : </div>
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Wifi : </div>
-                        <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">PRI: </div>
-
-
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Main Details</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Customer Name :
                     </div>
-                    <div class="col">
-                      <div>
-                        <mat-form-field class="w-50 pr-1">
-                          <input matInput placeholder="Internet">
-                        </mat-form-field>
-                        <mat-form-field class="w-50">
-                          <mat-select placeholder="Mbps">
-                            <mat-option></mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                      </div>
-                      <div>
-                        <mat-form-field class="w-50 pr-1">
-                          <input matInput placeholder="VPN Speed">
-                        </mat-form-field>
-                        <mat-form-field class="w-50">
-                          <mat-select placeholder="Mbps">
-                            <mat-option></mat-option>
-                          </mat-select>
-
-                        </mat-form-field>
-                      </div>
-                      <div>
-                        <mat-form-field class="w-50 pr-1">
-                          <input matInput placeholder="Wifi Speed">
-                        </mat-form-field>
-                        <mat-form-field class="w-50">
-                          <mat-select placeholder="Mbps">
-                            <mat-option></mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                      </div>
-                      <div>
-                        <mat-form-field class="w-100">
-                          <input matInput placeholder="PRI">
-                        </mat-form-field>
-                      </div>
-
-
-
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Branch Name :
                     </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Branch Address :
                     </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Location :
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="customerName"
+                        />
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="branchName"
+                        />
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="branchAddress"
+                        />
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input
+                          matInput
+                          formControlName="lat"
+                        />
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <input
+                          matInput
+                          formControlName="lang"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
                 </div>
-
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-<div class="col-sm-12 col-md-6 mb-4">
-  <div class="card border-left-info shadow h-100">
-      <div class="card-body">
-          <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                  <div class="font-weight-bold text-info  mb-3">Comments</div>
-                  <div class="row no-gutters align-items-center">
-
-                      <div class="col">
-                        <angular-editor  id="editor1"></angular-editor>
-                      </div>
-                  </div>
-              </div>
-
-          </div>
       </div>
-  </div>
-</div>
-<div class="col-sm-12 col-md-6 mb-4">
-  <div class="card border-left-info shadow h-100">
-      <div class="card-body">
-          <div class="row no-gutters align-items-center">
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                  <div class="font-weight-bold text-info  mb-3">Attachments</div>
-                  <div class="row no-gutters align-items-center">
-
-                      <div class="col">
-                        <mat-table [dataSource]="dataSource"  multiTemplateDataRows   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
-
-                          <ng-container matColumnDef="Attachment" >
-                            <mat-header-cell *matHeaderCellDef mat-sort-header> Attachment</mat-header-cell>
-                            <mat-cell *matCellDef="let element" >
-                              <!-- {{element.id}} -->
-                            </mat-cell>
-                        </ng-container>
-
-
-
-                            <ng-container matColumnDef="CreatedBy">
-                                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Created By</mat-header-cell>
-                                <mat-cell *matCellDef="let element">
-                                  <!-- {{element.CustomerName}} -->
-                                </mat-cell>
-                            </ng-container>
-
-                            <ng-container matColumnDef="CreatedDate">
-                              <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-
-                                <!-- {{element.BranchName}} -->
-                              </mat-cell>
-                          </ng-container>
-                          <ng-container matColumnDef="Download">
-                            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Download</mat-header-cell>
-                            <mat-cell *matCellDef="let element">
-                              <button
-                              mat-button
-                              class="text-success font-weight-bolder"
-                              matTooltip="download"
-
-                            >
-                              <mat-icon>download</mat-icon>
-                            </button>
-                            </mat-cell>
-                        </ng-container>
-
-                            <ng-container matColumnDef="Delete">
-                                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Delete</mat-header-cell>
-                                <mat-cell *matCellDef="let element" >
-                                  <button mat-button color="warn"  matTooltip="Delete">
-                                    <mat-icon>delete_forever</mat-icon>
-                                </button>
-                                  </mat-cell>
-                            </ng-container>
-
-
-
-
-                            <ng-container matColumnDef="noData">
-                                <mat-footer-cell *matFooterCellDef colspan="7">
-                                  No data ...
-                                </mat-footer-cell>
-
-                            </ng-container>
-
-
-
-                            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource.data.length==0 && dataSource !=null)}"></mat-footer-row>
-                            <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true" sticky></mat-header-row>
-                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
-
-                        </mat-table>
-
-
-                      </div>
-                  </div>
-              </div>
-
-          </div>
-      </div>
-  </div>
-</div>
-<div class="col-sm-12 col-md-6 mb-4">
-  <div class="card border-left-info shadow h-100">
-      <div class="card-body">
-          <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                  <div class="font-weight-bold text-info  mb-3">Notes</div>
-                  <div class="row no-gutters align-items-center">
-
-                    <div class="col">
-                      <mat-table [dataSource]="dataSource1"  multiTemplateDataRows   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
-
-                        <ng-container matColumnDef="Note" >
-                          <mat-header-cell *matHeaderCellDef mat-sort-header> Note</mat-header-cell>
-                          <mat-cell *matCellDef="let element" >
-                            <!-- {{element.id}} -->
-                          </mat-cell>
-                      </ng-container>
-
-
-
-                          <ng-container matColumnDef="From">
-                              <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  From</mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <!-- {{element.CustomerName}} -->
-                              </mat-cell>
-                          </ng-container>
-
-                          <ng-container matColumnDef="To">
-                            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>To </mat-header-cell>
-                            <mat-cell *matCellDef="let element">
-
-                              <!-- {{element.BranchName}} -->
-                            </mat-cell>
-                        </ng-container>
-                        <ng-container matColumnDef="Attached File">
-                          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Attached File</mat-header-cell>
-                          <mat-cell *matCellDef="let element">
- <!-- {{element.BranchName}} -->
-                          </mat-cell>
-                      </ng-container>
-
-                          <ng-container matColumnDef="CreatedDate">
-                              <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Created Date</mat-header-cell>
-                              <mat-cell *matCellDef="let element" >
- <!-- {{element.BranchName}} -->
-                                </mat-cell>
-                          </ng-container>
-
-
-
-
-                          <ng-container matColumnDef="noData">
-                              <mat-footer-cell *matFooterCellDef colspan="7">
-                                No data ...
-                              </mat-footer-cell>
-
-                          </ng-container>
-
-
-
-                          <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource1.data.length==0 && dataSource1 !=null)}"></mat-footer-row>
-                          <mat-header-row *matHeaderRowDef="displayedColumns1;sticky: true" sticky></mat-header-row>
-                          <mat-row *matRowDef="let row; columns: displayedColumns1;"></mat-row>
-
-
-                      </mat-table>
-
-
+                <div class="font-weight-bold text-info mb-3">
+                  Local Contact Info.
+                </div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact Name :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact E-mail :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact Phone 1:
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Local Contact Phone 2:
                     </div>
                   </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="localContactName"
+                        />
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="localContactEmail"
+                        />
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="localContactMobile1"
+                        />
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="localContactMobile2"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
               </div>
-
+            </div>
           </div>
-      </div>
-  </div>
-</div>
-
-
-
-
-        <div class="w-100 text-center mt-5">
-          <button
-            mat-raised-button
-            class="w-25 text-white submit"
-            type="submit"
-          >
-            Save
-          </button>
         </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Services</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Internet :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      VPN :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      Wifi :
+                    </div>
+                    <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">
+                      PRI:
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input
+                          matInput
+                          formControlName="speedInternet"
+                        />
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <mat-select
+                          formControlName="speedInternetType"
+                        >
+                          <mat-option value="Mbps">Mbps</mat-option>
+                          <mat-option value="Kbps">Kbps</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input
+                          matInput
+                          formControlName="speedVPN"
+                        />
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <mat-select
+                          formControlName="speedVPNType"
+                        >
+                          <mat-option value="Mbps">Mbps</mat-option>
+                          <mat-option value="Kbps">Kbps</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-50 pr-1">
+                        <input
+                          matInput
+                          formControlName="speedWifi"
+                        />
+                      </mat-form-field>
+                      <mat-form-field class="w-50">
+                        <mat-select
+                          formControlName="speedWifiType"
+                        >
+                          <mat-option value="Mbps">Mbps</mat-option>
+                          <mat-option value="Kbps">Kbps</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="w-100">
+                        <input
+                          matInput
+                          formControlName="priCount"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Comments</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col">
+                    <angular-editor
+                      formControlName="comment"
+                      id="editor1"
+                    ></angular-editor>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Attachments</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col">
+                    <mat-table
+                      [dataSource]="dataSourceAttachments"
+                      multiTemplateDataRows
+                      matSort
+                      matSortActive="name"
+                      matSortDirection="asc"
+                      matSortDisableClear
+                    >
+                      <ng-container matColumnDef="Attachment">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                          Attachment</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{element.name}}
+                        </mat-cell>
+                      </ng-container>
 
+                      <ng-container matColumnDef="CreatedBy">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                        >
+                          Created By</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{element.createdBy}}
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="CreatedDate">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                          >Created Date</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{element.createdDate | date:'short'}}
+                        </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="Download">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                          >Download</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          <button
+                            mat-button
+                            class="text-success font-weight-bolder"
+                            matTooltip="download"
+                          >
+                            <mat-icon>download</mat-icon>
+                          </button>
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="Delete">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                        >
+                          Delete</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          <button mat-button color="warn" matTooltip="Delete">
+                            <mat-icon>delete_forever</mat-icon>
+                          </button>
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="noData">
+                        <mat-footer-cell *matFooterCellDef colspan="7">
+                          No data ...
+                        </mat-footer-cell>
+                      </ng-container>
+
+                      <mat-footer-row
+                        *matFooterRowDef="['noData']"
+                        [ngClass]="{
+                          hide: !(
+                            dataSourceAttachments.data.length == 0 && dataSourceAttachments != null
+                          )
+                        }"
+                      ></mat-footer-row>
+                      <mat-header-row
+                        *matHeaderRowDef="displayedColumns; sticky: true"
+                        sticky
+                      ></mat-header-row>
+                      <mat-row
+                        *matRowDef="let row; columns: displayedColumns"
+                      ></mat-row>
+                    </mat-table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="font-weight-bold text-info mb-3">Notes</div>
+                <div class="row no-gutters align-items-center">
+                  <div class="col">
+                    <mat-table
+                      [dataSource]="dataSourceNotes"
+                      multiTemplateDataRows
+                      matSort
+                      matSortActive="name"
+                      matSortDirection="asc"
+                      matSortDisableClear
+                    >
+                      <ng-container matColumnDef="Note">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                          Note</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{ element.name }}
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="From">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                        >
+                          From</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{ element.from.name }}
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="To">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                          >To
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element.to.name }}
+                        </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="Attached File">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                          >Attached File</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{ element.attachedFile }}
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="CreatedDate">
+                        <mat-header-cell
+                          mat-header-cell
+                          *matHeaderCellDef
+                          mat-sort-header
+                        >
+                          Created Date</mat-header-cell
+                        >
+                        <mat-cell *matCellDef="let element">
+                          {{element.createdDate| date:'short'}}
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="noData">
+                        <mat-footer-cell *matFooterCellDef colspan="7">
+                          No data ...
+                        </mat-footer-cell>
+                      </ng-container>
+
+                      <mat-footer-row
+                        *matFooterRowDef="['noData']"
+                        [ngClass]="{
+                          hide: !(
+                            dataSourceNotes.data.length == 0 &&
+                            dataSourceNotes != null
+                          )
+                        }"
+                      ></mat-footer-row>
+                      <mat-header-row
+                        *matHeaderRowDef="displayedColumns1; sticky: true"
+                        sticky
+                      ></mat-header-row>
+                      <mat-row
+                        *matRowDef="let row; columns: displayedColumns1"
+                      ></mat-row>
+                    </mat-table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-100 text-center mt-5">
+        <button mat-raised-button class="w-25 text-white submit" type="submit">
+          Save
+        </button>
+      </div>
     </div>
   </form>
 </mat-card>
 
-
-
 <div class="boxHistory" (click)="getHistory(1)">
-  <span > <mat-icon class="mx-1">history</mat-icon><span class="text-white">History</span> </span>
+  <span>
+    <mat-icon class="mx-1">history</mat-icon
+    ><span class="text-white">History</span>
+  </span>
 </div>
-<div class="boxNote"  (click)="addNotes(1)">
-  <span> <mat-icon class="mx-1">edit</mat-icon><span class="text-white">Note</span></span>
+<div class="boxNote" (click)="addNotes(requesModel)">
+  <span>
+    <mat-icon class="mx-1">edit</mat-icon
+    ><span class="text-white">Note</span></span
+  >
 </div>
 <!-- ---------------------form--------------------------- -->

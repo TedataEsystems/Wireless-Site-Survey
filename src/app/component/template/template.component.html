@@ -70,13 +70,13 @@
         <ng-container matColumnDef="Status">
           <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Status</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <!-- {{element.Status}} -->
+            {{element.statusName}}
             </mat-cell>
       </ng-container>
       <ng-container matColumnDef="CreatedDate">
         <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Created Date</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <!-- {{element.CreatedDate | date:'short'}} -->
+          {{element.createdDate | date:'short'}}
           </mat-cell>
     </ng-container>
 
@@ -85,7 +85,7 @@
             <mat-cell *matCellDef="let row">
 
 
-                <button mat-button   class="btn-success "  matTooltip="Edit" routerLink="/editRequest" >
+                <button mat-button   class="btn-success " [routerLink]="['./editRequest', row.id]"  matTooltip="Edit"  >
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-button   class="btn-warning text-white mx-1"  matTooltip="Details" routerLink="/viewRequest" [queryParams]="{rowid:  row.id }">
