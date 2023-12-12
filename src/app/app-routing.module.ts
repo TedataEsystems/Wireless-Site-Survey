@@ -17,6 +17,7 @@ import { ViewRequestComponent } from "./component/view-request/view-request.comp
 import { ReportComponent } from "./component/report/report.component";
 import { UsersAddComponent } from "./component/users-add/users-add.component";
 import { UsersViewComponent } from "./component/users-view/users-view.component";
+import { ReportResultComponent } from "./component/report-result/report-result.component";
 
 const routes: Routes = [
   {
@@ -72,7 +73,7 @@ const routes: Routes = [
         path: 'userView',
         component: UsersViewComponent,
       },
-      
+
       {
         path: 'newRequest',
         component: TemplateFormComponent,
@@ -84,6 +85,10 @@ const routes: Routes = [
       {
         path: 'viewRequest',
         component: ViewRequestComponent,
+      },
+      {
+        path: 'reportResult',
+        component: ReportResultComponent,
       },
       {
         path: 'sendMail',
