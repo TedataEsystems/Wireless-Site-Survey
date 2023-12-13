@@ -4,7 +4,7 @@ import { IRequest } from '../model/IReuest';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { INote } from '../model/INote';
-import { INoteEntity } from '../model/INoteEntity';
+import { IRequestVm } from '../model/IRequestVm';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class RequestService {
   AddReuest(data:IRequest ):Observable<any>
   {
    return this.HttpClient.post<any>(`${environment.API_URL}Requests/AddReuest`,data);  
+  }
+  EditRequest(data:IRequestVm ):Observable<any>
+  {
+   return this.HttpClient.post<any>(`${environment.API_URL}Requests/UpdateRequest`,data);  
   }
   getRequestsPendingVendor(): Observable<any>{
     return this.HttpClient.get<any>(`${environment.API_URL}Requests/PendingVendor`);

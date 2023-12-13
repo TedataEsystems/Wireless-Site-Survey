@@ -28,38 +28,42 @@ export class RequestNoteComponent implements OnInit {
     this.useGroup = localStorage.getItem("userGroup");
   }
   form: FormGroup = new FormGroup({
-    To: new FormControl(0),
+    To: new FormControl(),
     Note: new FormControl(""),
     file: new FormControl(""),
   });
 
   ngOnInit() {
-    debugger;
-    console.log(this.data);
-    console.log(this.requesModel);
-    this.form;
+
   }
 
   onSubmit() {
     debugger;
     if (this.form.valid) {
+      if(this.fileAttr !="choose file"){
+        this.noteModel.attachedFile = this.fileAttr;
+      }else{
+        this.noteModel.attachedFile ="N/A"
+      }
       this.noteModel.name = this.form.value.Note;
-      this.noteModel.attachedFile = this.fileAttr;
       this.noteModel.surveyId = this.requesModel.id;
-      this.noteModel.toId = this.requesModel.typeId;
+      this.noteModel.toId = this.form.value.To;
       this.noteModel.fromId = this.requesModel.typeId;
       this.requestService.AddNote(this.noteModel).subscribe((response) => {
         if (response.status == true) {
-          this.requestService
-            .upload(
-              this.file,
-              Number(this.noteModel.surveyId),
-              Number(this.noteModel.toId),
-              this.noteModel.attachedFile
-            )
-            .subscribe((res) => {
-              console.log(res);
-            });
+    debugger;
+    if(response.data.attachedFile !="N/A"){
+      this.requestService
+      .upload(
+        this.file,
+        Number(this.noteModel.surveyId),
+        Number(this.noteModel.toId),
+        this.noteModel.attachedFile
+      )
+      .subscribe((res) => {
+        console.log(res);
+      });
+    }
           this.toastr.success("Add note successfully");
           this.onClose();
           this.dialogRef.close("save");

@@ -1,6 +1,6 @@
 <!--  ------main----------------- -->
 <mat-card class="example-card">
-  <form [formGroup]="requestForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="requestForm">
     <div class="row">
       <div class="col-sm-12 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100">
@@ -303,7 +303,7 @@
                         </mat-cell>
                       </ng-container>
 
-                      <ng-container matColumnDef="Delete">
+                      <!-- <ng-container matColumnDef="Delete">
                         <mat-header-cell
                           mat-header-cell
                           *matHeaderCellDef
@@ -317,7 +317,7 @@
                             <mat-icon>delete_forever</mat-icon>
                           </button>
                         </mat-cell>
-                      </ng-container>
+                      </ng-container> -->
 
                       <ng-container matColumnDef="noData">
                         <mat-footer-cell *matFooterCellDef colspan="7">
@@ -382,7 +382,7 @@
                           From</mat-header-cell
                         >
                         <mat-cell *matCellDef="let element">
-                          {{ element.from.name }}
+                          {{ element.from?.name }}
                         </mat-cell>
                       </ng-container>
 
@@ -394,7 +394,7 @@
                           >To
                         </mat-header-cell>
                         <mat-cell *matCellDef="let element">
-                          {{ element.to.name }}
+                          {{ element.to?.name }}
                         </mat-cell>
                       </ng-container>
                       <ng-container matColumnDef="Attached File">
@@ -468,7 +468,7 @@
     ><span class="text-white">History</span>
   </span>
 </div>
-<div class="boxNote" (click)="addNotes(requesModel)">
+<div class="boxNote" (click)="addNotes(requestModel)">
   <span>
     <mat-icon class="mx-1">edit</mat-icon
     ><span class="text-white">Note</span></span

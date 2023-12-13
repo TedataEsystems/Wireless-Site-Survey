@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, NgZone, OnInit, ViewChild } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatTableDataSource } from "@angular/material/table";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { RequestHistoryComponent } from "../request-history/request-history.component";
 import { RequestNoteComponent } from "../request-note/request-note.component";
 import { RequestService } from "src/app/shared/service/request.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { IRequestVm } from "src/app/shared/model/IRequestVm";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatSort } from "@angular/material/sort";
 import { MatPaginator } from "@angular/material/paginator";
-import { Toast } from "ngx-toastr";
+import { Toast, ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-edit-request",
@@ -22,13 +22,13 @@ export class EditRequestComponent implements OnInit {
   @ViewChild(MatSort) sort?: MatSort;
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   id: number;
-  requesModel: IRequestVm = <IRequestVm>{};
+  requestModel: IRequestVm = <IRequestVm>{};
   displayedColumns: string[] = [
     "Attachment",
     "CreatedBy",
     "CreatedDate",
     "Download",
-    "Delete",
+   // "Delete",
   ];
   dataSourceAttachments = new MatTableDataSource();
   displayedColumns1: string[] = [
@@ -42,14 +42,21 @@ export class EditRequestComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private requestService: RequestService
+    private requestService: RequestService,
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.id = Number(this.route.snapshot.paramMap.get("id"));
   }
 
   ngOnInit(): void {
-    console.log(this.id);
     this.getRequestById();
+  }
+  ngAfterViewInit() {
+    this.dataSourceNotes.paginator = this.paginator as MatPaginator;
+    this.dataSourceNotes.sort = this.sort as MatSort;
+    this.dataSourceAttachments.paginator = this.paginator as MatPaginator;
+    this.dataSourceAttachments.sort = this.sort as MatSort;
   }
   requestForm: FormGroup = new FormGroup({
     customerName: new FormControl("", [Validators.required]),
@@ -73,42 +80,35 @@ export class EditRequestComponent implements OnInit {
 
   getRequestById() {
     this.requestService.getRequestById(this.id).subscribe((response) => {
-      this.requesModel = response.data;
-
+      this.requestModel = response.data;
       this.dataSourceNotes = new MatTableDataSource<any>(
-        this.requesModel.notes
+        this.requestModel.notes
       );
-      this.dataSourceNotes.paginator = this.paginator as MatPaginator;
-      this.dataSourceNotes.sort = this.sort as MatSort;
-
       this.dataSourceAttachments = new MatTableDataSource<any>(
-        this.requesModel.attachmentList
+        this.requestModel.attachmentList
       );
-      this.dataSourceAttachments.paginator = this.paginator as MatPaginator;
-      this.dataSourceAttachments.sort = this.sort as MatSort;
-
       this.setFormRequset();
     });
   }
   setFormRequset() {
     this.requestForm.patchValue({
-      customerName: this.requesModel.customerName,
-      branchName: this.requesModel.branchName,
-      branchAddress: this.requesModel.branchAddress,
-      lat: this.requesModel.lat,
-      lang: this.requesModel.lang,
-      comment: this.requesModel.comment,
-      localContactName: this.requesModel.localContactName,
-      localContactEmail: this.requesModel.localContactEmail,
-      localContactMobile1: this.requesModel.localContactMobile1,
-      localContactMobile2: this.requesModel.localContactMobile2,
-      speedInternet: this.requesModel.speedInternet,
-      speedInternetType: this.requesModel.speedInternetType,
-      speedVPN: this.requesModel.speedVpn,
-      speedVPNType: this.requesModel.speedVpnType,
-      speedWifi: this.requesModel.speedWifi,
-      speedWifiType: this.requesModel.speedWifiType,
-      priCount: this.requesModel.priCount,
+      customerName: this.requestModel.customerName,
+      branchName: this.requestModel.branchName,
+      branchAddress: this.requestModel.branchAddress,
+      lat: this.requestModel.lat,
+      lang: this.requestModel.lang,
+      comment: this.requestModel.comment,
+      localContactName: this.requestModel.localContactName,
+      localContactEmail: this.requestModel.localContactEmail,
+      localContactMobile1: this.requestModel.localContactMobile1,
+      localContactMobile2: this.requestModel.localContactMobile2,
+      speedInternet: this.requestModel.speedInternet,
+      speedInternetType: this.requestModel.speedInternetType,
+      speedVPN: this.requestModel.speedVpn,
+      speedVPNType: this.requestModel.speedVpnType,
+      speedWifi: this.requestModel.speedWifi,
+      speedWifiType: this.requestModel.speedWifiType,
+      priCount: this.requestModel.priCount,
     });
   }
   getHistory() {
@@ -124,9 +124,9 @@ export class EditRequestComponent implements OnInit {
       .subscribe((result) => {});
   }
 
-  addNotes(requesModel: any) {
+  addNotes(requestModel: any) {
     const dialogGonfig = new MatDialogConfig();
-    dialogGonfig.data = { data: requesModel };
+    dialogGonfig.data = { data: requestModel };
     dialogGonfig.disableClose = true;
     dialogGonfig.autoFocus = true;
     dialogGonfig.width = "50%";
@@ -140,18 +140,53 @@ export class EditRequestComponent implements OnInit {
   }
   DeleteAttach(id: any) {
     this.requestService.DeleteAttachFile(Number(id)).subscribe((response) => {
-      console.log(response);
+      this.getRequestById();
     });
   }
-  DownloadAttach(id:any){
-    this.requestService.DownloadAttach(Number(id)).subscribe(response=>{
-      const linkSource =
-      'data:' + response.type + ';base64,' + response.data;
-    const downloadLink = document.createElement('a');
-    const fileName = response.name;
-    downloadLink.href = linkSource;
-    downloadLink.download = fileName;
-    downloadLink.click();
-    })
+  DownloadAttach(id: any) {
+    this.requestService.DownloadAttach(Number(id)).subscribe((response) => {
+      const linkSource = "data:" + response.type + ";base64," + response.data;
+      const downloadLink = document.createElement("a");
+      const fileName = response.name;
+      downloadLink.href = linkSource;
+      downloadLink.download = fileName;
+      downloadLink.click();
+    });
+  }
+
+  onSubmit() {
+    if (this.requestForm.valid) {
+      this.requestModel.customerName = this.requestForm.value.customerName;
+      this.requestModel.branchAddress = this.requestForm.value.branchAddress;
+      this.requestModel.branchName = this.requestForm.value.branchName;
+      this.requestModel.lang = this.requestForm.value.lang;
+      this.requestModel.lat = this.requestForm.value.lat;
+      this.requestModel.localContactEmail =
+        this.requestForm.value.localContactEmail;
+      this.requestModel.localContactName =
+        this.requestForm.value.localContactName;
+      this.requestModel.localContactMobile1 =
+        this.requestForm.value.localContactMobile1;
+      this.requestModel.localContactMobile2 =
+        this.requestForm.value.localContactMobile2;
+      this.requestModel.speedInternet = Number(
+        this.requestForm.value.speedInternet
+      );
+      this.requestModel.speedInternetType =
+        this.requestForm.value.speedInternetType;
+      this.requestModel.speedVpn = Number(this.requestForm.value.speedVPN);
+      this.requestModel.speedVpnType = this.requestForm.value.speedVPNType;
+      this.requestModel.speedWifi = Number(this.requestForm.value.speedWifi);
+      this.requestModel.speedWifiType = this.requestForm.value.speedWifiType;
+      this.requestModel.priCount = this.requestForm.value.priCount;
+      this.requestModel.comment = this.requestForm.value.comment;
+      this.requestService
+        .EditRequest(this.requestModel)
+        .subscribe((response) => {
+          console.log(response);
+          this.toastr.success("Edit  Successfully");
+          this.router.navigate(["/home"], { relativeTo: this.route });
+        });
+    }
   }
 }

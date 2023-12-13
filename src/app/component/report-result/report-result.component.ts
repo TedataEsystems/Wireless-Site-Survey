@@ -33,7 +33,8 @@ export class ReportResultComponent implements OnInit {
   ngAfterViewInit() {
 
     this.dataSource.sort = this.sort as MatSort;
-    this.dataSource.paginator = this.paginator as MatPaginator;}
+    this.dataSource.paginator = this.paginator as MatPaginator;
+  }
 
     onSearchClear(){
       this.searchKey ='';
