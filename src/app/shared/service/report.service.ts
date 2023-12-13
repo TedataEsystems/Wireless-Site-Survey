@@ -14,4 +14,8 @@ export class ReportService {
     console.log("from service")
     return this.httpClient.get<any>(`${environment.API_URL}Requests/GetReportLists`);
   }
+  getReportResults(report:any): Observable<any> {
+    console.log("from report search service")
+    return this.httpClient.post<any>(`${environment.API_URL}Requests/GetReportResults`,report);
+  }
 }

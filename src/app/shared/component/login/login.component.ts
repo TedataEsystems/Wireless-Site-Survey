@@ -63,16 +63,16 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userName", this.user.userName);
         localStorage.setItem("userGroup", this.user.userGroup);
         localStorage.setItem("email", this.user.email);
-        this.router.navigate(["/verifyOTP"], { relativeTo: this.route });
-       console.log(this.user.email);
-        this.otpService
-          .SendOtpCode(this.user.email)
-          .subscribe((response) => {
-            debugger
-            console.log(response);
-          });
+      //   this.router.navigate(["/verifyOTP"], { relativeTo: this.route });
+      //  console.log(this.user.email);
+      //   this.otpService
+      //     .SendOtpCode(this.user.email)
+      //     .subscribe((response) => {
+      //       debugger
+      //       console.log(response);
+      //     });
 
-        // this.router.navigateByUrl('home');
+         this.router.navigateByUrl('home');
       }
       if (
         this.user.token == "undefined" ||

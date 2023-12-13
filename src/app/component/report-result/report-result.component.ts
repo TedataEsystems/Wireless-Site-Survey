@@ -20,13 +20,24 @@ export class ReportResultComponent implements OnInit {
   searchKey:string ='' ;
   constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
     this.titleService.setTitle("Pending Presales");
+    this.data= this.router.getCurrentNavigation().extras.state.data;
+    console.log(this.data,"Data1")
+    //const data = router.getCurrentNavigation().extras.state.data;
    }
 
    @ViewChild(MatSort) sort?:MatSort ;
    @ViewChild(MatPaginator) paginator?:MatPaginator ;
    displayedColumns: string[] = ['ID','CustomerName','BranchName','L.CName', 'L.CMobile','AccountManager','Status','CreatedDate','CompletedDate'];
    dataSource = new MatTableDataSource();
+   data:any;
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<any>(
+      this.data
+    );
+    this.dataSource.paginator = this.paginator as MatPaginator;
+    this.dataSource.sort = this.sort as MatSort;
+    
+  console.log(this.data,"Data")
   }
 
 
