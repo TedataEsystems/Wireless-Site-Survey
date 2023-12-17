@@ -77,16 +77,23 @@ export class EditRequestComponent implements OnInit {
     speedWifiType: new FormControl(""),
     priCount: new FormControl(""),
   });
-
+getNotesByRequestId(){
+  this.requestService.getNotesByRequestId(this.id).subscribe(res=>{
+    debugger
+    this.requestModel.notes = res.notesList;
+    this.requestModel.attachmentList = res.attachesList;
+    this.dataSourceNotes = new MatTableDataSource<any>(
+      this.requestModel.notes
+    );
+    this.dataSourceAttachments = new MatTableDataSource<any>(
+      this.requestModel.attachmentList
+    );
+  })
+}
   getRequestById() {
     this.requestService.getRequestById(this.id).subscribe((response) => {
       this.requestModel = response.data;
-      this.dataSourceNotes = new MatTableDataSource<any>(
-        this.requestModel.notes
-      );
-      this.dataSourceAttachments = new MatTableDataSource<any>(
-        this.requestModel.attachmentList
-      );
+      this.getNotesByRequestId();
       this.setFormRequset();
     });
   }
@@ -155,6 +162,7 @@ export class EditRequestComponent implements OnInit {
   }
 
   onSubmit() {
+    debugger
     if (this.requestForm.valid) {
       this.requestModel.customerName = this.requestForm.value.customerName;
       this.requestModel.branchAddress = this.requestForm.value.branchAddress;
@@ -180,6 +188,8 @@ export class EditRequestComponent implements OnInit {
       this.requestModel.speedWifiType = this.requestForm.value.speedWifiType;
       this.requestModel.priCount = this.requestForm.value.priCount;
       this.requestModel.comment = this.requestForm.value.comment;
+      debugger
+      console.log(this.requestModel)
       this.requestService
         .EditRequest(this.requestModel)
         .subscribe((response) => {

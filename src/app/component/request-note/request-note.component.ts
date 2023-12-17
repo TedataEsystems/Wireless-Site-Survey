@@ -15,7 +15,7 @@ import { RequestService } from "src/app/shared/service/request.service";
 export class RequestNoteComponent implements OnInit {
   noteModel: INote = <INote>{};
   useGroup: string;
-  requesModel: IRequestVm = <IRequestVm>{};
+  requestModel: IRequestVm = <IRequestVm>{};
   fileAttr = "choose file";
   fileVal: any;
   constructor(
@@ -24,7 +24,7 @@ export class RequestNoteComponent implements OnInit {
     private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.requesModel = data.data;
+    this.requestModel = data.data;
     this.useGroup = localStorage.getItem("userGroup");
   }
   form: FormGroup = new FormGroup({
@@ -46,9 +46,9 @@ export class RequestNoteComponent implements OnInit {
         this.noteModel.attachedFile ="N/A"
       }
       this.noteModel.name = this.form.value.Note;
-      this.noteModel.surveyId = this.requesModel.id;
+      this.noteModel.surveyId = this.requestModel.id;
       this.noteModel.toId = this.form.value.To;
-      this.noteModel.fromId = this.requesModel.typeId;
+      this.noteModel.fromId = this.requestModel.typeId;
       this.requestService.AddNote(this.noteModel).subscribe((response) => {
         if (response.status == true) {
     debugger;
@@ -82,7 +82,6 @@ export class RequestNoteComponent implements OnInit {
     this.dialogRef.close("save");
   }
   uploadFileEvt(imgFile: any) {
-    debugger;
     if (imgFile.target.files && imgFile.target.files[0]) {
       this.handleFileInputChange(imgFile);
       this.fileVal = imgFile.target.files[0];

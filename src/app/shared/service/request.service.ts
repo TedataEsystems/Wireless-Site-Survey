@@ -18,6 +18,9 @@ export class RequestService {
   getRequestById(id: number): Observable<any> {
     return this.HttpClient.post<any>(`${environment.API_URL}Requests/GetRequestById`, id);
   }
+  getNotesByRequestId(id: number): Observable<any> {
+    return this.HttpClient.post<any>(`${environment.API_URL}Requests/GetNotesByReuestId`, id);
+  }
   AddReuest(data:IRequest ):Observable<any>
   {
    return this.HttpClient.post<any>(`${environment.API_URL}Requests/AddReuest`,data);  
