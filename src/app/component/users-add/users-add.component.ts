@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { type } from 'src/app/shared/model/Type';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-users-add',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersAddComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userService:UserService) { }
+groups:type[]=[];
   ngOnInit(): void {
+    this.userService.getUsersGroups().subscribe((res) => {
+      console.log(res,"result")
+      if (res.status == true) {
+        this.groups=res.usersGroupList;
+      } 
+    }); //end of subscribe
   }
 
 }

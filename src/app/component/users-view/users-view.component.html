@@ -20,28 +20,29 @@
   <div class="example-container mat-elevation-z8">
 
     <mat-table [dataSource]="dataSource"  multiTemplateDataRows   matSort  matSortActive="name" matSortDirection="asc" matSortDisableClear >
-
+      <ng-container matColumnDef="Id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          {{element.id}}
+        </mat-cell>
+    </ng-container>
       <ng-container matColumnDef="Username" >
         <mat-header-cell *matHeaderCellDef mat-sort-header> Username</mat-header-cell>
         <mat-cell *matCellDef="let element" >
-          <!-- {{element.id}} -->
+          {{element.userName}}
         </mat-cell>
     </ng-container>
-
-
-
         <ng-container matColumnDef="Group">
             <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Group</mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <!-- {{element.customerName}} -->
+              {{element.group}}
             </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Vendor">
           <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Vendor</mat-header-cell>
           <mat-cell *matCellDef="let element">
-<!--
-            {{element.branchName}} -->
+            {{element.vendor}} 
           </mat-cell>
       </ng-container>
 
@@ -53,7 +54,7 @@
 
 
 
-                <button mat-button   class="btn-warning text-white mx-1"  matTooltip="reset password"(click)="resetPassword(row.id)">
+                <button mat-button   class="btn-warning text-white mx-1"  matTooltip="reset password"(click)="resetPassword(row)">
                   <mat-icon>sync</mat-icon>
 
               </button>

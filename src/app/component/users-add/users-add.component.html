@@ -14,10 +14,6 @@
                             <div class="col-auto">
                                 <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Username : </div>
                                 <div class="h6 mb-3 mr-5 font-weight-bold text-gray-800">Group : </div>
-
-
-
-
                             </div>
                             <div class="col pr-5">
 
@@ -29,7 +25,9 @@
                               <div>
                                 <mat-form-field class="w-100">
                                   <mat-select  matInput placeholder="Group">
-                                    <mat-option></mat-option>
+                                    <mat-option *ngFor="let group of groups" [value]="group.id">
+                                      {{group.name}}
+                                    </mat-option>
                                   </mat-select>
                                 </mat-form-field>
                               </div>

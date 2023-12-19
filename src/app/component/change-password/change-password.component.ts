@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { resetUserPass } from 'src/app/shared/model/User';
+import { UserService } from 'src/app/shared/service/user.service';
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
@@ -55,11 +59,44 @@ export class ChangePasswordComponent implements OnInit {
       ['fontSize']
     ]
 }
-  constructor(private toastr:ToastrService) {
+form:FormGroup=new FormGroup({
+  //oldPassword:new FormControl(''),
+  newPassword:new FormControl(''),
+  reTypeNewPassword:new FormControl(''),
+})
+  constructor(public dialogRef: MatDialogRef<ChangePasswordComponent>,private toastr:ToastrService, @Inject(MAT_DIALOG_DATA) public data: any,private userService:UserService) {
 
   }
+userPassword:resetUserPass;
   ngOnInit(): void {
-
   }
-
+  onSubmit()
+  {
+    let userPass={
+      userName:this.data.userName,
+      oldPassword:this.form.value.oldPassword,
+      newPassword:this.form.value.newPassword
+    }
+    if(this.form.value.newPassword == this.form.value.reTypeNewPassword)
+    {
+      this.userService.resetPassword(userPass).subscribe((res)=>{
+        console.log(res,"result");
+        if(res.status=="Success")
+        {
+          this.toastr.success("passwored reset successfully");
+       this.form.reset();
+          this.dialogRef.close('save');
+        }
+        else{
+          this.toastr.warning(res.message);
+      this.form.reset();
+        }
+      })
+    }
+    else
+    {
+      this.toastr.warning("The new password and confirmation password must match ");
+      this.form.reset();
+    }
+  }
 }
