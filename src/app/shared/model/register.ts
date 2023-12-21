@@ -3,4 +3,6 @@ export interface Iregister{
     password : string,
     email : string,
     PhoneNumber:string,
+    typeId : number,
+    vendorId : number | null
 }

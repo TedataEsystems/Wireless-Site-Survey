@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.clear();
     // this.accountService.logout().subscribe(res=>{
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl("/");
   }
   toggleFullscreen() {
     if (screenfull.isEnabled) {

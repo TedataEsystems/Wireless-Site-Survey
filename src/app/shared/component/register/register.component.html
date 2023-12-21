@@ -4,147 +4,148 @@
 
     <img src="../../../../assets/image/soultion_logo.png">
 
- </div>
+  </div>
   <mat-card>
 
-      <mat-card-content>
+    <mat-card-content>
 
-          <div class="tool">
+      <div class="tool">
 
-             <span class="topic"><mat-icon>lock</mat-icon></span>
+        <span class="topic"><mat-icon>lock</mat-icon></span>
 
-          </div>
+      </div>
 
-           <h2>
+      <h2>
 
-           Register Form :
-           </h2>
+        Register Form :
+      </h2>
 
-           <form  class="mt-3" (ngSubmit)="onSubmit()" name="form" [formGroup]="form">
-            <mat-form-field class="w-50 pr-1" appearance="outline">
+      <form class="mt-3" (ngSubmit)="onSubmit()" name="form" [formGroup]="form">
+        <mat-form-field class="w-50 pr-1" appearance="outline">
 
-              <input formControlName="username" matInput required placeholder="Username">
+          <input formControlName="username" matInput required placeholder="Username">
+          <mat-icon mat-icon-button matSuffix>account_circle</mat-icon>
+          <mat-error *ngIf="form.controls['username'].errors?.required">
+            *Username is Required
+          </mat-error>
 
-                <mat-icon  mat-icon-button matSuffix>account_circle</mat-icon>
-
-
-
-              <mat-error *ngIf="form.controls['username'].errors?.required">
-                *Username is Required
-              </mat-error>
-
-          </mat-form-field>
-          <mat-form-field class="w-50" appearance="outline">
-
-            <input formControlName="Email" matInput required placeholder="Email">
-
-              <mat-icon  mat-icon-button matSuffix>mail</mat-icon>
-
-
-
-            <mat-error *ngIf="form.controls['Email'].errors?.required">
-              *Email is Required
-            </mat-error>
-
+        </mat-form-field>
+        <mat-form-field class="w-50" appearance="outline">
+          <input formControlName="Email" matInput required placeholder="Email">
+          <mat-icon mat-icon-button matSuffix>mail</mat-icon>
+          <mat-error *ngIf="form.controls['Email'].errors?.required">
+            *Email is Required
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="w-50 pr-1" appearance="outline">
 
-          <input formControlName="phone1" matInput required placeholder="Phone Number 1">
-
-            <mat-icon  mat-icon-button matSuffix>phone</mat-icon>
-
-
-
-          <mat-error *ngIf="form.controls['phone1'].errors?.required">
+          <input formControlName="phone" matInput required placeholder="Phone Number">
+          <mat-icon mat-icon-button matSuffix>phone</mat-icon>
+          <mat-error *ngIf="form.controls['phone'].errors?.required">
             *Phone number is Required
           </mat-error>
+        </mat-form-field>
+        
+        <!-- <mat-form-field class="w-50" appearance="outline">
 
-      </mat-form-field>
-      <mat-form-field class="w-50" appearance="outline">
+          <input formControlName="phone2" matInput required placeholder="Phone number 2">
+          <mat-icon mat-icon-button matSuffix>phone</mat-icon>
 
-        <input formControlName="phone2" matInput required placeholder="Phone number 2">
+        </mat-form-field> -->
 
-          <mat-icon  mat-icon-button matSuffix>phone</mat-icon>
+        <mat-form-field class="w-50 pr-1" appearance="outline">
+          <mat-select  formControlName="typeId" placeholder="Select Type" (selectionChange)="OnChangeType($event)">
+            <ng-container *ngFor="let type of types">
+              <mat-option value="{{type.id}}">{{type.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error *ngIf="form.controls['typeId'].errors?.required">
+            *Type number is Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-50 pr-1" appearance="outline" *ngIf="vendorFlag">
+          <mat-select formControlName="vendorId" placeholder="Select Vendor" >
+            <ng-container *ngFor="let vendor of vendors">
+              <mat-option value="{{vendor.id}}">{{vendor.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
 
 
+        <!--    Password      -->
+        <mat-form-field class="w-50 pr-1" appearance="outline">
 
-        <!-- <mat-error *ngIf="form.controls['phone2'].errors?.required">
-          *Email is Required
-        </mat-error> -->
-
-    </mat-form-field>
+          <input #passwordField formControlName="password" matInput type="password" placeholder="Password" required>
 
 
-           <!--    Password      -->
-           <mat-form-field class="w-50 pr-1"  appearance="outline">
-
-              <input  #passwordField formControlName="password" matInput type="password" placeholder="Password" required>
-
-
-                  <button (click)="
+          <button (click)="
                   passwordField.type === 'password'
                       ? (passwordField.type = 'text')
                       : (passwordField.type =
                             'password')
               " mat-icon-button matSuffix type="button">
-                      <mat-icon *ngIf="
+            <mat-icon *ngIf="
                       passwordField.type ===
                       'password'
-                  "  class="icon-size-5">visibility</mat-icon>
-                      <mat-icon *ngIf="
+                  " class="icon-size-5">visibility</mat-icon>
+            <mat-icon *ngIf="
                       passwordField.type === 'text'
-                  "
-        class="icon-size-5">visibility_off</mat-icon>
-                  </button>
-              <mat-error *ngIf="form.controls['password'].errors?.required">*Password is Required </mat-error>
+                  " class="icon-size-5">visibility_off</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['password'].errors?.required">*Password is Required </mat-error>
+          <div *ngIf="form.get('password').hasError('passwordRequirements')">
+            Password must contain at least one uppercase letter, one lowercase letter,
+            one digit, one special character, and have a minimum length of 7 characters.
+          </div>
+        </mat-form-field>
+        <!--    confirmPassword      -->
+        <mat-form-field class="w-50" appearance="outline">
 
-          </mat-form-field>
-            <!--    confirmPassword      -->
-            <mat-form-field class="w-50"  appearance="outline">
-
-              <input #confirmPassword  formControlName="confirmPassword" matInput type="password" placeholder="Password" required>
-              <button (click)="
+          <input #confirmPassword formControlName="confirmPassword" matInput type="password" placeholder="Password"
+            required>
+          <button (click)="
               confirmPassword.type === 'password'
                   ? (confirmPassword.type =
                         'text')
                   : (confirmPassword.type =
                         'password')
           " mat-icon-button matSuffix type="button">
-                  <mat-icon *ngIf="
+            <mat-icon *ngIf="
                   confirmPassword.type ===
                   'password'
               " class="icon-size-5">visibility</mat-icon>
-                  <mat-icon *ngIf="confirmPassword.type === 'text'"
-              class="icon-size-5">visibility_off</mat-icon>
-              </button>
-              <mat-error>
+            <mat-icon *ngIf="confirmPassword.type === 'text'" class="icon-size-5">visibility_off</mat-icon>
+          </button>
+          <mat-error>
 
-                  * Confirmation password doesn't match to Password
+            * Confirmation password doesn't match to Password
 
-              </mat-error>
+          </mat-error>
 
-          </mat-form-field>
+        </mat-form-field>
 
-              <button mat-flat-button class="login"   type="submit">Register</button>
-              <div class="register mt-2">
-                <span class="example-margin text-white" routerLink="/login"><span class="text-dark">Already have an account ?</span> &nbsp; Sign in </span>
+        <button mat-flat-button class="login" type="submit">Register</button>
+        <div class="register mt-2">
+          <span class="example-margin text-white" routerLink="/login"><span class="text-dark">Already have an account
+              ?</span> &nbsp; Sign in </span>
 
-             </div>
-              <div class="msg-error pt-3" *ngIf="warning">
-                <mat-error >
-                   <mat-icon>warning</mat-icon>
-                  Enter a valid Email or Password
-                  </mat-error>
-             </div>
-          </form>
+        </div>
+        <div class="msg-error pt-3" *ngIf="warning">
+          <mat-error>
+            <mat-icon>warning</mat-icon>
+            Enter a valid Email or Password
+          </mat-error>
+        </div>
+      </form>
 
-      </mat-card-content>
+    </mat-card-content>
 
   </mat-card>
 
   <div class="text-center mt-2">
-     <span class="rights">All rights reserved to TE<span class="text-danger">Data</span> 2015 </span>
+    <span class="rights">All rights reserved to TE<span class="text-danger">Data</span> 2015 </span>
 
-      </div>
+  </div>
 
 </div>

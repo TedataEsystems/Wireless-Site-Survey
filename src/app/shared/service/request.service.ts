@@ -58,4 +58,10 @@ export class RequestService {
   getRequestHistory(id: number): Observable<any> {
     return this.HttpClient.post<any>(`${environment.API_URL}Requests/RequestHistory`, id);
   }
+  GetUserTypes(): Observable<any[]>{
+    return this.HttpClient.get<any[]>(`${environment.API_URL}Requests/GetUserTypes`);
+  }
+  GetVendors(): Observable<any[]>{
+    return this.HttpClient.get<any[]>(`${environment.API_URL}Requests/GetVendors`);
+  }
 }
