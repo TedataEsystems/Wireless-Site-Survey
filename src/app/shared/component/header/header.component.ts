@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   @Output() public triggerHeader = new EventEmitter();
   userName: string;
- 
+
   constructor(private dialog: MatDialog,private router: Router) {}
 
   ngOnInit(): void {
@@ -28,21 +28,21 @@ export class HeaderComponent implements OnInit {
   }
   ChangePassword()
   {
-    let user={
-      userName:localStorage.getItem("userName").toString()
-    }
-    const dialogGonfig = new MatDialogConfig();
-    dialogGonfig.data =user;
-    dialogGonfig.disableClose = true;
-    dialogGonfig.autoFocus = true;
-    dialogGonfig.width = '50%';
-    dialogGonfig.panelClass = 'modals-dialog';
-    this.dialog
-      .open(ChangePasswordComponent, dialogGonfig)
-      .afterClosed()
-      .subscribe((result) => {
-        this.ngOnInit();
-      });
+    // let user={
+    //   userName:localStorage.getItem("userName").toString()
+    // }
+    // const dialogGonfig = new MatDialogConfig();
+    // dialogGonfig.data =user;
+    // dialogGonfig.disableClose = true;
+    // dialogGonfig.autoFocus = true;
+    // dialogGonfig.width = '50%';
+    // dialogGonfig.panelClass = 'modals-dialog';
+    // this.dialog
+    //   .open(ChangePasswordComponent, dialogGonfig)
+    //   .afterClosed()
+    //   .subscribe((result) => {
+    //     this.ngOnInit();
+    //   });
   }
 
   logOut() {

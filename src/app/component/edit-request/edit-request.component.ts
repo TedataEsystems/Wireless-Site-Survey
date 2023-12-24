@@ -11,6 +11,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatSort } from "@angular/material/sort";
 import { MatPaginator } from "@angular/material/paginator";
 import { Toast, ToastrService } from "ngx-toastr";
+import { LoadingService } from "src/app/shared/service/loading.service";
 
 @Component({
   selector: "app-edit-request",
@@ -44,7 +45,8 @@ export class EditRequestComponent implements OnInit {
     private dialog: MatDialog,
     private requestService: RequestService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private loader :LoadingService
   ) {
     this.id = Number(this.route.snapshot.paramMap.get("id"));
   }
@@ -88,9 +90,11 @@ getNotesByRequestId(){
     this.dataSourceAttachments = new MatTableDataSource<any>(
       this.requestModel.attachmentList
     );
+    this.loader.idle();
   })
 }
   getRequestById() {
+    this.loader.busy();
     this.requestService.getRequestById(this.id).subscribe((response) => {
       this.requestModel = response.data;
       this.getNotesByRequestId();
@@ -163,6 +167,7 @@ getNotesByRequestId(){
 
   onSubmit() {
     debugger
+    this.loader.busy();
     if (this.requestForm.valid) {
       this.requestModel.customerName = this.requestForm.value.customerName;
       this.requestModel.branchAddress = this.requestForm.value.branchAddress;
@@ -195,6 +200,7 @@ getNotesByRequestId(){
         .subscribe((response) => {
           console.log(response);
           this.toastr.success("Edit  Successfully");
+          this.loader.idle();
           this.router.navigate(["/home"], { relativeTo: this.route });
         });
     }

@@ -14,7 +14,7 @@ export class LayoutComponent implements OnInit {
   Template='Home'
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private observer: BreakpointObserver) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private observer: BreakpointObserver) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -54,6 +54,8 @@ export class LayoutComponent implements OnInit {
          this.sidenav.open();
        }
      });
+      // Manually trigger change detection after modifying the sidenav properties
+      this.changeDetectorRef.detectChanges();
    }
    setTitle(value){
     this.Template=value;

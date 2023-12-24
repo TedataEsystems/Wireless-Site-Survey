@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IRequestVm } from 'src/app/shared/model/IRequestVm';
 import { DeleteService } from 'src/app/shared/service/delete.service';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 import { RequestService } from 'src/app/shared/service/request.service';
 
 
@@ -21,7 +22,7 @@ import { RequestService } from 'src/app/shared/service/request.service';
 export class CompletedComponent implements OnInit {
   completedReuests: IRequestVm[] = [];
   searchKey:string ='' ;
-  constructor(private requestService : RequestService , private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
+  constructor(private requestService : RequestService , private loader :LoadingService,private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
     this.titleService.setTitle("Completed");
    }
 
@@ -34,6 +35,7 @@ export class CompletedComponent implements OnInit {
   }
 
   getRequestsCompleted() {
+    this.loader.busy();
     this.requestService.getRequestsCompleted().subscribe((response) => {
       this.completedReuests = response.data;
       this.dataSource = new MatTableDataSource<any>(
@@ -41,6 +43,8 @@ export class CompletedComponent implements OnInit {
       );
       this.dataSource.paginator = this.paginator as MatPaginator;
       this.dataSource.sort = this.sort as MatSort;
+
+      this.loader.idle();
     });
   }
   ngAfterViewInit() {
@@ -67,7 +71,7 @@ export class CompletedComponent implements OnInit {
 
     }
     onDelete(row:any){
-
+      
       this.dialogService.openConfirmDialog().afterClosed().subscribe(res => {
         if (res) {
           // this.service.deleteDailyOperation(r.id).subscribe(

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IRequestVm } from 'src/app/shared/model/IRequestVm';
 import { IRequest } from 'src/app/shared/model/IReuest';
 import { DeleteService } from 'src/app/shared/service/delete.service';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 import { RequestService } from 'src/app/shared/service/request.service';
 @Component({
   selector: 'app-template',
@@ -28,7 +29,7 @@ import { RequestService } from 'src/app/shared/service/request.service';
 export class TemplateComponent implements OnInit {
   searchKey:string ='' ;
   pendingSalesReuests: IRequestVm[] = [];
-  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ,private requestService : RequestService ) {
+  constructor(private titleService:Title,private router:Router,private loader :LoadingService, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ,private requestService : RequestService ) {
     this.titleService.setTitle("Pending Sales");
    }
 
@@ -41,11 +42,13 @@ export class TemplateComponent implements OnInit {
   }
 
   getRequestsPendingSales(){
+    this.loader.busy();
   this.requestService.getRequestsPendingSales().subscribe(response => {
     this.pendingSalesReuests = response.data;
     this.dataSource = new MatTableDataSource<any>(this.pendingSalesReuests);
     this.dataSource.paginator = this.paginator as MatPaginator;
     this.dataSource.sort = this.sort as MatSort;
+    this.loader.idle()
   })
 }
   ngAfterViewInit() {

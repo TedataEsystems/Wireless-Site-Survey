@@ -1,10 +1,12 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { INote } from "src/app/shared/model/INote";
 import { IRequestVm } from "src/app/shared/model/IRequestVm";
+import { LoadingService } from "src/app/shared/service/loading.service";
 import { RequestService } from "src/app/shared/service/request.service";
 
 @Component({
@@ -22,6 +24,7 @@ export class RequestNoteComponent implements OnInit {
     public dialogRef: MatDialogRef<RequestNoteComponent>,
     private requestService: RequestService,
     private toastr: ToastrService,
+    private loader:LoadingService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.requestModel = data.data;
@@ -38,7 +41,7 @@ export class RequestNoteComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
+    this.loader.busy()
     if (this.form.valid) {
       if(this.fileAttr !="choose file"){
         this.noteModel.attachedFile = this.fileAttr;
@@ -67,8 +70,10 @@ export class RequestNoteComponent implements OnInit {
           this.toastr.success("Add note successfully");
           this.onClose();
           this.dialogRef.close("save");
+          this.loader.idle()
         } else {
           this.toastr.warning("Faild !!!");
+          this.loader.idle()
         }
       });
     } else {

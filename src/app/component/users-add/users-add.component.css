@@ -75,3 +75,7 @@ cursor: pointer;
   background-color:var(--main-color);
 
 }
+
+mat-form-field{
+  margin-bottom: 25px;
+}

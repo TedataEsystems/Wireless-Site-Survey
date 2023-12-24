@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/shared/service/user.service';
+import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 @Component({
   selector: 'app-send-mail',
   templateUrl: './send-mail.component.html',
@@ -62,13 +64,14 @@ form:FormGroup=new FormGroup({
   subject:new FormControl(''),
   message:new FormControl('')
 })
-  constructor(private toastr:ToastrService,private userService:UserService) {
-
+  constructor(private toastr:ToastrService,private userService:UserService , private title:Title,private loader:LoadingService) {
+this.title.setTitle('Send Mail')
   }
   ngOnInit(): void {
 
   }
   onSubmit(){
+    this.loader.busy();
    let mail={
     to:this.form.value.to,
     subject:this.form.value.subject,
@@ -79,10 +82,12 @@ form:FormGroup=new FormGroup({
     {
       this.toastr.success(res.message);
    this.form.reset();
+   this.loader.idle()
     }
     else{
       this.toastr.warning(res.message);
   this.form.reset();
+  this.loader.idle()
     }
    })
   }

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DeleteService } from 'src/app/shared/service/delete.service';
 import { RequestAttachComponent } from '../request-attach/request-attach.component';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 @Component({
   selector: 'app-report-result',
   templateUrl: './report-result.component.html',
@@ -17,11 +18,11 @@ import { RequestAttachComponent } from '../request-attach/request-attach.compone
 export class ReportResultComponent implements OnInit {
 
 
-  searchKey:string ='' ;
-  constructor(private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
+  searchKey:string ='' 
+  constructor(private titleService:Title,private router:Router,private loader :LoadingService, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
     this.titleService.setTitle("Pending Presales");
     this.data= this.router.getCurrentNavigation().extras.state.data;
-    console.log(this.data,"Data1")
+
     //const data = router.getCurrentNavigation().extras.state.data;
    }
 
@@ -36,7 +37,7 @@ export class ReportResultComponent implements OnInit {
     );
     this.dataSource.paginator = this.paginator as MatPaginator;
     this.dataSource.sort = this.sort as MatSort;
-    
+
   console.log(this.data,"Data")
   }
 

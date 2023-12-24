@@ -12,6 +12,7 @@ import { IRequestVm } from 'src/app/shared/model/IRequestVm';
 import { DeleteService } from 'src/app/shared/service/delete.service';
 import { RequestService } from 'src/app/shared/service/request.service';
 import { RequestAttachComponent } from '../request-attach/request-attach.component';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 
 @Component({
   selector: 'app-pending-vendor',
@@ -21,7 +22,9 @@ import { RequestAttachComponent } from '../request-attach/request-attach.compone
 export class PendingVendorComponent implements OnInit {
   pendingVendorReuests: IRequestVm[] = [];
   searchKey:string ='' ;
-  constructor(private requestService : RequestService,private titleService:Title,private router:Router, private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService ) {
+  constructor(private requestService : RequestService,private titleService:Title,private router:Router,
+    private dialog: MatDialog,private dialogService: DeleteService, public toastr: ToastrService,
+    private loader :LoadingService ) {
     this.titleService.setTitle("Pending Vendor");
    }
 
@@ -34,6 +37,7 @@ export class PendingVendorComponent implements OnInit {
   }
 
   getRequestsPendingVendor() {
+    this.loader.busy();
     this.requestService.getRequestsPendingVendor().subscribe((response) => {
       this.pendingVendorReuests = response.data;
       this.dataSource = new MatTableDataSource<any>(
@@ -46,7 +50,9 @@ export class PendingVendorComponent implements OnInit {
   ngAfterViewInit() {
 
     this.dataSource.sort = this.sort as MatSort;
-    this.dataSource.paginator = this.paginator as MatPaginator;}
+    this.dataSource.paginator = this.paginator as MatPaginator;
+    this.loader.idle();
+  }
 
     onSearchClear(){
       this.searchKey ='';

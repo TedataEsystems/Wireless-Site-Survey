@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DeleteService } from 'src/app/shared/service/delete.service';
 import { UserService } from 'src/app/shared/service/user.service';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 
 
 @Component({
@@ -23,11 +24,12 @@ export class UsersViewComponent implements OnInit {
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   displayedColumns: string[] = ['Id', 'Username', 'Group', 'Vendor', 'action'];
   dataSource = new MatTableDataSource();
-  constructor(private deleteService: DeleteService, private userService: UserService, private titleService: Title, private router: Router, private dialog: MatDialog, private dialogService: DeleteService, public toastr: ToastrService) {
+  constructor(private deleteService: DeleteService,private loader :LoadingService, private userService: UserService, private titleService: Title, private router: Router, private dialog: MatDialog, private dialogService: DeleteService, public toastr: ToastrService) {
     this.titleService.setTitle("User /View");
   }
 
   ngOnInit(): void {
+    this.loader.busy()
     this.userService.getUsers().subscribe(res => {
       console.log(res.usersList, "users")
       if (res.status == true) {
@@ -36,7 +38,9 @@ export class UsersViewComponent implements OnInit {
         );
         this.dataSource.paginator = this.paginator as MatPaginator;
         this.dataSource.sort = this.sort as MatSort;
+        this.loader.idle()
       }
+      this.loader.idle()
     });
 
   }
@@ -74,18 +78,24 @@ export class UsersViewComponent implements OnInit {
   }
 
   resetPassword(row: any) {
-    console.log(row, "row from reset method")
-    const dialogGonfig = new MatDialogConfig();
-    dialogGonfig.data = row;
-    dialogGonfig.disableClose = true;
-    dialogGonfig.autoFocus = true;
-    dialogGonfig.width = '50%';
-    dialogGonfig.panelClass = 'modals-dialog';
-    this.dialog
-      .open(ChangePasswordComponent, dialogGonfig)
-      .afterClosed()
-      .subscribe((result) => {
-        this.ngOnInit();
-      });
-  }
+  //   console.log(row, "row from reset method")
+  //   const dialogGonfig = new MatDialogConfig();
+  //   dialogGonfig.data = row;
+  //   dialogGonfig.disableClose = true;
+  //   dialogGonfig.autoFocus = true;
+  //   dialogGonfig.width = '50%';
+  //   dialogGonfig.panelClass = 'modals-dialog';
+  //   this.dialog
+  //     .open(ChangePasswordComponent, dialogGonfig)
+  //     .afterClosed()
+  //     .subscribe((result) => {
+  //       this.ngOnInit();
+  //     });
+
+
+  this.userService.setRowData(row);
+
+  this.router.navigate(['/changePassword'])
+   }
+
 }

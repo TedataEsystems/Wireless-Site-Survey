@@ -1,31 +1,37 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
 import { Color, Label, MultiDataSet } from "ng2-charts";
 import { IGraphDataCount } from "src/app/shared/model/IGraphDataCount";
 import { IGraphDataJson } from "src/app/shared/model/IGraphDataJson";
 import { DashboardService } from "src/app/shared/service/dashboard.service";
+import { LoadingService } from "src/app/shared/service/loading.service";
 
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.css"],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit ,AfterViewInit {
   currentMonthAndYear: string;
   graphDataJson = <IGraphDataJson>{};
   graphDataCount = <IGraphDataCount>{};
   constructor(
     private title: Title,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private loader :LoadingService
   ) {
     this.title.setTitle("Dashboard");
   }
 
   ngOnInit(): void {
+    this.loader.busy();
     this.GraphDataCount();
     this.GraphDataJson();
     this.getCurrentMonthAndYear();
+  }
+  ngAfterViewInit(){
+    this.loader.idle();
   }
   getCurrentMonthAndYear(): void {
     const currentDate = new Date();
@@ -51,14 +57,14 @@ export class DashboardComponent implements OnInit {
   }
   GraphDataCount() {
     this.dashboardService.GraphDataCount().subscribe((response) => {
-      debugger;
+
       console.log(response);
       this.graphDataCount = response.data;
     });
   }
   GraphDataJson() {
     this.dashboardService.GraphDataJson().subscribe((response) => {
-      debugger;
+
       console.log(response);
       this.graphDataJson = response.data;
       console.log(this.graphDataJson);

@@ -18,6 +18,7 @@ import { IRequestVm } from "src/app/shared/model/IRequestVm";
 import { DeleteService } from "src/app/shared/service/delete.service";
 import { RequestService } from "src/app/shared/service/request.service";
 import { RequestAttachComponent } from "../request-attach/request-attach.component";
+import { LoadingService } from "src/app/shared/service/loading.service";
 
 @Component({
   selector: "app-pending-presales",
@@ -31,6 +32,7 @@ export class PendingPresalesComponent implements OnInit {
     private requestService: RequestService,
     private titleService: Title,
     private router: Router,
+    private loader: LoadingService,
     private dialog: MatDialog,
     private dialogService: DeleteService,
     public toastr: ToastrService
@@ -58,6 +60,7 @@ export class PendingPresalesComponent implements OnInit {
   }
 
   getRequestsPendingPresales() {
+    this.loader.busy();
     this.requestService.getRequestsPendingPresales().subscribe((response) => {
       debugger;
       this.pendingPresalesReuests = response.data;
@@ -66,6 +69,9 @@ export class PendingPresalesComponent implements OnInit {
       );
       this.dataSource.paginator = this.paginator as MatPaginator;
       this.dataSource.sort = this.sort as MatSort;
+
+
+      this.loader.idle();
     });
   }
   ngAfterViewInit() {

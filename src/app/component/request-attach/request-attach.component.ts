@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { ToastrService } from "ngx-toastr";
 import { INote } from "src/app/shared/model/INote";
 import { IRequestVm } from "src/app/shared/model/IRequestVm";
+import { LoadingService } from "src/app/shared/service/loading.service";
 import { RequestService } from "src/app/shared/service/request.service";
 
 @Component({
@@ -22,6 +23,7 @@ export class RequestAttachComponent implements OnInit {
     private requestService: RequestService,
     public dialogRef: MatDialogRef<RequestAttachComponent>,
     private toastr: ToastrService,
+    private loader :LoadingService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     debugger
@@ -37,6 +39,7 @@ export class RequestAttachComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loader.busy()
     if (this.form.valid) {
       debugger
       console.log(this.file)
@@ -50,11 +53,14 @@ export class RequestAttachComponent implements OnInit {
         .subscribe((res) => {
         if(res.status == true){
           this.toastr.success(" Submitted successfully");
+          this.loader.idle()
         }else{
           this.toastr.error("Error !");
+          this.loader.idle()
         }
         this.onClose();
         this.dialogRef.close("save");
+        this.loader.idle()
         });
       return;
     }

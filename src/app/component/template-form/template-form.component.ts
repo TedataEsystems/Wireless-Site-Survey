@@ -10,6 +10,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { LoadingService } from "src/app/shared/service/loading.service";
 
 // export interface items{
 //   label:string,
@@ -46,12 +47,13 @@ export class TemplateFormComponent implements OnInit {
     speedWifiType: new FormControl(""),
     priCount: new FormControl(""),
   });
-  constructor(private route: ActivatedRoute,private router: Router,private toastr:ToastrService, private requestService:RequestService) {
+  constructor(private route: ActivatedRoute,private loader :LoadingService,private router: Router,private toastr:ToastrService, private requestService:RequestService) {
 
 
 }
   ngOnInit(): void {}
   onSubmit() {
+    this.loader.busy();
     if (this.requestForm.valid) {
       this.requestModel.id=this.requestForm.value.id;
       this.requestModel.customerName = this.requestForm.value.customerName;
@@ -75,6 +77,7 @@ export class TemplateFormComponent implements OnInit {
       this.requestService.AddReuest(this.requestModel).subscribe((response) => {
         console.log(response);
         this.toastr.success("Add Successfully");
+        this.loader.idle();
         this.router.navigate(["/home"], { relativeTo: this.route });
       });
     }

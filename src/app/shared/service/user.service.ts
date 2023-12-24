@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-
+ data:any
   constructor(private httpClient: HttpClient) { }
   getUsers(): Observable<any> {
     console.log("from service")
@@ -23,11 +23,16 @@ export class UserService {
   }
   resetPassword(userPass:any):Observable<any>
   {
-    return this.httpClient.post<any>(`${environment.API_URL}Account/resetPassword`,userPass);  
+    return this.httpClient.post<any>(`${environment.API_URL}Account/resetPassword`,userPass);
   }
   sendMail(mail:any):Observable<any>
   {
-    return this.httpClient.post<any>(`${environment.API_URL}Account/SendMail`,mail);  
+    return this.httpClient.post<any>(`${environment.API_URL}Account/SendMail`,mail);
   }
-  
+  setRowData(row){
+this.data=row
+  }
+  getRowData(){
+   return this.data
+      }
 }
