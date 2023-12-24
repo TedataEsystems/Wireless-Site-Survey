@@ -25,5 +25,9 @@ export class UserService {
   {
     return this.httpClient.post<any>(`${environment.API_URL}Account/resetPassword`,userPass);  
   }
+  sendMail(mail:any):Observable<any>
+  {
+    return this.httpClient.post<any>(`${environment.API_URL}Account/SendMail`,mail);  
+  }
   
 }

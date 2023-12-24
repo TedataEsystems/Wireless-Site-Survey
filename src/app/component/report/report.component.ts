@@ -55,9 +55,7 @@ export class ReportComponent implements OnInit {
       {
         this.router.navigate(['/home/reportResult'],{ state: { data: res.data } })
       }
-      console.log(res.data,"result of search")
     })
-    console.log(report,":Reporting values")
   }
 
 

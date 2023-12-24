@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormGroup, FormControl } from '@angular/forms';
+import { UserService } from 'src/app/shared/service/user.service';
 @Component({
   selector: 'app-send-mail',
   templateUrl: './send-mail.component.html',
@@ -55,11 +57,34 @@ export class SendMailComponent implements OnInit {
       ['fontSize']
     ]
 }
-  constructor(private toastr:ToastrService) {
+form:FormGroup=new FormGroup({
+  to:new FormControl(''),
+  subject:new FormControl(''),
+  message:new FormControl('')
+})
+  constructor(private toastr:ToastrService,private userService:UserService) {
 
   }
   ngOnInit(): void {
 
+  }
+  onSubmit(){
+   let mail={
+    to:this.form.value.to,
+    subject:this.form.value.subject,
+    message:this.form.value.message
+   }
+   this.userService.sendMail(mail).subscribe((res)=> {
+    if(res.status)
+    {
+      this.toastr.success(res.message);
+   this.form.reset();
+    }
+    else{
+      this.toastr.warning(res.message);
+  this.form.reset();
+    }
+   })
   }
 
 }
