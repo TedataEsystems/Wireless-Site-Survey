@@ -25,6 +25,7 @@
     (click)="setTitle('Request / AddNew')"
     routerLink="./newRequest"
     routerLinkActive="active"
+    *ngIf="userRole != 'Vendor'"
   >
     <mat-icon>reply_all</mat-icon>
     <span class="nav-caption">Add Request</span>

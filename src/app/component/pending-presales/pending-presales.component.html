@@ -75,7 +75,7 @@
       <ng-container matColumnDef="Vendor">
         <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>  Vendor</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          {{element.vendor.name}}
+          {{element.vendor?.name}}
           </mat-cell>
     </ng-container>
       <ng-container matColumnDef="CreatedDate">
